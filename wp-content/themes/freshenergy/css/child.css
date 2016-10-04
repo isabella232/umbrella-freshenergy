@@ -1,0 +1,90 @@
+/**
+ * @group Color
+ * @label Base Color (used for navbar, widget titles, etc.)
+ * @type color
+ * @default_value #2275bb
+ */
+/**
+ * @group Color
+ * @label Header/Footer Color
+ * @type color
+ * @default_value #222
+ */
+/**
+ * @group Color
+ * @label Pre-Footer Color
+ * @type color
+ * @default_value #ddd
+ */
+/**
+ * @group Color
+ * @label Color of links
+ * @type color
+ * @default_value #2275bb
+ */
+/**
+ * @group Color
+ * @label Hover color of links
+ * @type color
+ * @default_value #2275bb
+ */
+/**
+ * @group Color
+ * @label Background color of post meta boxes (author bio, related posts, etc.)
+ * @type color
+ * @default_value #fff
+ */
+/**
+ * @group Basics
+ * @label Body Background Color
+ * @type color
+ * @default_value #fff
+ */
+/**
+ * @group Basics
+ * @label Page Background Color
+ * @type color
+ * @default_value #fff
+ */
+/**
+ * @group Basics
+ * @label Text Color
+ * @type color
+ * @default_value #333
+ */
+/**
+ * @group Basics
+ * @label Default Vertical Spacing
+ * @type pixels
+ * @default_value 24px
+ */
+/**
+ * @group Typography
+ * @label Sans Font Family
+ * @type text
+ * @default_value "Helvetica Neue", Helvetica, Arial, sans-serif
+ */
+/**
+ * @group Typography
+ * @label Serif Font Family
+ * @type text
+ */
+/**
+ * @group Typography
+ * @label Base Font Size
+ * @type pixels
+ */
+/**
+ * @group Typography
+ * @label Sans Font Family
+ * @type dropdown
+ * @options @serifFontFamily|@sansFontFamily
+ * @default_value @serifFontFamily
+ */
+/**
+ * @group Typography
+ * @label Base Line Height
+ * @type text
+ * @default_value 1.5
+ */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZXNDb250ZW50IjpbXX0= */
