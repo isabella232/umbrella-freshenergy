@@ -1,0 +1,100 @@
+.media,
+.media-body,
+.media-heading,
+.tweet-actions {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+
+.media,
+.media .media {
+  margin-top: 15px;
+}
+.tweet {
+	margin-bottom: 10px !important;
+}
+.media:first-child {
+  margin-top: 0;
+}
+
+.media-object {
+  display: block;
+}
+
+.media-heading {
+  margin: 0 0 5px;
+}
+.tweet-author{
+	width: 80%;
+}
+.media-heading a,
+.tweet-actions a {
+	font-size: 80%;
+	color: #b2b2b2;
+}
+
+.media-heading a:hover,
+.tweet-actions a:hover {
+	color: #666666;
+}
+
+.tweet-actions{
+	padding-top: 4px;
+	visibility: hidden;
+}
+
+.tweet:hover .tweet-actions{
+	visibility: visible;
+}
+
+.tweet-actions a{
+	margin-right: 6px;
+	display: block;
+	float: left;
+}
+.tweet-actions .icon{
+	background: url(https://si0.twimg.com/images/dev/cms/intents/icons/sprites/everything-spritev2.png);
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;
+}
+	.tweet-actions .reply .icon{
+		background-position: 0 0;
+	}
+	.tweet-actions .reply:hover .icon{
+		background-position: -16px 0;
+	}
+
+	.tweet-actions .retweet .icon{
+		background-position: -80px 0;
+	}
+	.tweet-actions .retweet:hover .icon{
+		background-position: -96px 0;
+	}
+
+	.tweet-actions .favorite .icon{
+		background-position: -32px 0;
+	}
+	.tweet-actions .favorite:hover .icon{
+		background-position: -48px 0;
+	}
+
+.media > .pull-left {
+  margin-right: 10px;
+}
+.media > .pull-right {
+  margin-left: 10px;
+}
+.media-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
