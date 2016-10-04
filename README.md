@@ -26,3 +26,14 @@ After reviewing the options and creating the new install, partake in the followi
 1. `cd` to the directory `freshenergy/` in your VVV setup
 2. `git clone git@github.com:INN/umbrella-freshenergy.git`
 3. Copy the contents of the new directory `umbrella-freshenergy/` into `htdocs/`, including all hidden files whose names start with `.` periods.
+
+## Initial database setup notes
+
+This is a series of notes of what had to be done to get the db working.
+
+1. `fab vagrant.reload_db:freshenergydb_dev__2016-09-19__3-21\ PM.sql,freshenergy`
+2. open `wp-config.php`, disable all multisite lines
+3. `wp user` command to update our user with the password from 1pass
+4. in Sequel Pro, change the site's domain and home in `wp_options` to http://freshenergy.dev/
+4. Follow instructions on https://codex.wordpress.org/Create_A_Network to convert the singlesite database to a multisite database, including progressively enabling the lines in `wp-config.php`
+5. Contact WPE with ??? about their db stuff because the database import didn't affect the wp-users table.
