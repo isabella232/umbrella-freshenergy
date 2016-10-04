@@ -80,6 +80,7 @@ wp-content/debug.log
 
 # do version-control the theme we care about
 !/wp-content/themes/freshenergy
+!/wp-content/themes/fresh-energy
 
 # large/disallowed file types
 # a CDN should be used for these
