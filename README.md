@@ -36,4 +36,9 @@ This is a series of notes of what had to be done to get the db working.
 3. `wp user` command to update our user with the password from 1pass
 4. in Sequel Pro, change the site's domain and home in `wp_options` to http://freshenergy.dev/
 4. Follow instructions on https://codex.wordpress.org/Create_A_Network to convert the singlesite database to a multisite database, including progressively enabling the lines in `wp-config.php`
+5. Perform database replacements:
+	- in `wp_blogs`, set domain to `freshenergy.wpengine.com`
+	- in `wp_site`, set domain to `freshenergy.wpengine.com`
+	- in `wp_options`, set siteurl and home to `http://freshenergy.wpengine.com/`
+	- in `wp_sitemeta`, set siteurl and home to `http://freshenergy.wpengine.com/`
 5. Contact WPE with ??? about their db stuff because the database import didn't affect the wp-users table.
