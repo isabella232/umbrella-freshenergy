@@ -38,7 +38,7 @@ class FreshEnergyHome extends Homepage {
 		$homepage_feature_term = get_term_by( 'name', __('Homepage Featured', 'largo'), 'prominence' );
 
 		// Get the homepage featured posts
-		$featured_stories = get_posts(array(
+		$featured = get_posts(array(
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'prominence',
@@ -49,24 +49,38 @@ class FreshEnergyHome extends Homepage {
 			'posts_per_page' => $max,
 		));
 
-		if ( count( $featured_stories ) < 4 ) {
-			$min = 4 - count( $featured_stories );
+		if ( count( $featured ) < 4 ) {
+			$min = 4 - count( $featured );
 
 			$additional = get_posts( array(
 				'orderby' => 'date',
 				'order' => 'DESC',
 				'posts_per_page' => $min,
-				'post__not_in' => array_map( function( $o ) { return $o->ID; }, $featured_stories )
+				'post__not_in' => array_map( function( $o ) { return $o->ID; }, $featured )
 			) );
+
+			$featured = array_merge( $featured, $additional );
 		}
+
+		var_log($featured);
+
+		return $featured;
 	}
 
 	/**
 	 * Output the markup for the homepage top stories
 	 */
 	function topStories() {
+		$posts = $this->get_topStories();
 		echo '<h1>Top stories</h1>';
 
+		global $post;
+		foreach ( $posts as $post ) {
+			setup_postdata( $post );
+			get_template_part( 'partials/home-topstory' );
+		}
+
+		wp_reset_postdata();
 	}
 
 	/**
