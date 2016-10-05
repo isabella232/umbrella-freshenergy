@@ -3,6 +3,8 @@
  * Child theme functions for the freshenergy theme
  */
 
+define( 'INN_MEMBER', true );
+
 /**
  * Include compiled style.css
  */
