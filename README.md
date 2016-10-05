@@ -48,3 +48,24 @@ This is a series of notes of what had to be done to get the db working.
 7. Go to the Fresh Energy dashboard
 	- Activate the Fresh Energy theme that's a Largo child
 	- In Settings > Reading, change "Front page displays" to "Your latest posts"
+
+## Theme setup notes
+
+Widgets:
+
+- Homepage Call to Action
+	- Text widget
+- Homepage Circles Menu
+	- Custom Menu, set to use the Circles Menu
+- Homepage Bottom
+	- Fresh Energy Homepage Widgets
+- Homepage Footer
+	- donation acceptance widget
+	- newsletter signup widget
+
+Theme Options
+
+- Layout
+	- Home Template: Fresh Energy Homepage Template
+	- Homepage Bottom: blank
+	- Show Sticky Posts? : unchecked
