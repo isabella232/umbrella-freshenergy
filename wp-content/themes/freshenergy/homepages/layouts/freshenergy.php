@@ -1,4 +1,10 @@
 <?php
+/**
+ * The homepage layout for the Fresh Energy site
+ * This file is based off of https://github.com/INN/theme-rivard-report/blob/master/homepages/layouts/RivardReportHomepage.php
+ *
+ * @since Largo 0.5.4
+ */
 include_once get_template_directory() . '/homepages/homepage-class.php';
 
 class FreshEnergyHome extends Homepage {
@@ -29,6 +35,8 @@ add_action( 'init', 'fe_custom_homepage_layouts' );
  * This isn't handled with the 'sidebars' index of the $defaults in
  * FreshEnergyHome::__construct because that only lets us set names,
  * not set wrapping HTML and other things
+ *
+ * @todo maybe this should be included in the homepage layout class
  */
 function fe_add_homepage_widget_areas() {
 	$sidebars = array(
