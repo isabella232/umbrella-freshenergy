@@ -28,8 +28,11 @@ class FreshEnergyHome extends Homepage {
 	}
 
 	/**
+	 * Get the posts for the homepage top row
+	 *
 	 * This copies fairly heavily from Largo's largo_home_featured_stories
 	 * This is a separate implementation because we're not going to use the Top Story taxonomy term
+     *
 	 * @link https://github.com/INN/Largo/blob/09367b17e4d49578dbcc22d9c0829d3668a1e3f5/homepages/homepage.php#L152-L171
 	 * @see largo_home_featured_stories
 	 * @see FreshEnergyHome::topStories
@@ -62,8 +65,6 @@ class FreshEnergyHome extends Homepage {
 			$featured = array_merge( $featured, $additional );
 		}
 
-		var_log($featured);
-
 		return $featured;
 	}
 
@@ -72,15 +73,19 @@ class FreshEnergyHome extends Homepage {
 	 */
 	function topStories() {
 		$posts = $this->get_topStories();
-		echo '<h1>Top stories</h1>';
 
 		global $post;
+
+		ob_start();
+
 		foreach ( $posts as $post ) {
 			setup_postdata( $post );
 			get_template_part( 'partials/home-topstory' );
 		}
 
 		wp_reset_postdata();
+
+		return ob_get_clean();
 	}
 
 	/**
