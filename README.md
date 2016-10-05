@@ -41,4 +41,10 @@ This is a series of notes of what had to be done to get the db working.
 	- in `wp_site`, set domain to `freshenergy.wpengine.com`
 	- in `wp_options`, set siteurl and home to `http://freshenergy.wpengine.com/`
 	- in `wp_sitemeta`, set siteurl and home to `http://freshenergy.wpengine.com/`
-5. Contact WPE with ??? about their db stuff because the database import didn't affect the wp-users table.
+5. Get WPE to upload the DB
+6. Log into the network admin, and do the following:
+	- Network Enable the Largo base theme
+	- enable the Fresh Energy theme for the Fresh Energy site
+7. Go to the Fresh Energy dashboard
+	- Activate the Fresh Energy theme that's a Largo child
+	- In Settings > Reading, change "Front page displays" to "Your latest posts"
