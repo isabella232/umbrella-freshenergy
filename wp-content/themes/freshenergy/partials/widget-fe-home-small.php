@@ -7,5 +7,5 @@
 		<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
 	</h5>
 
-	<span class="byline"><?php echo largo_time(); ?></span>
+	<span class="byline"><?php largo_time(); ?></span>
 </div>
