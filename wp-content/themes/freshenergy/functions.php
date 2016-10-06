@@ -17,7 +17,13 @@
  * @link https://github.com/INN/Largo/blob/master/functions.php#L145
  */
 function largo_child_require_files() {
-	require_once( get_stylesheet_directory() . '/homepages/layouts/freshenergy.php' );
+	$includes = array(
+		'/homepages/layouts/freshenergy.php',
+		'/inc/widgets.php',
+	);
+	foreach ( $includes as $include ) {
+		require_once( get_stylesheet_directory() . $include );
+	}
 }
 add_action( 'after_setup_theme', 'largo_child_require_files' );
 
