@@ -64,11 +64,11 @@ $queried_object = get_queried_object();
 		<h3 class=""><span>Staff</span></h3>
 		<div class="menu-staff-container">
 			<ul id="menu-staff" class="menu">
-				<li id="menu-item-18442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18442"><a href="#"><span>Steven Staffer</span></a></li>
-				<li id="menu-item-18443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18443"><a href="#"><span>Steven Staffer</span></a></li>
-				<li id="menu-item-18444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18444"><a href="#"><span>Stephanie Staffer</span></a></li>
-				<li id="menu-item-18445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18445"><a href="#"><span>Steven Staffer</span></a></li>
-				<li id="menu-item-18446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18446"><a href="#"><span>Stephanie Staffer</span></a></li>
+				<li id="menu-item-18442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18442"><a href="#"><span>Matt Privratsky</span></a></li>
+				<li id="menu-item-18443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18443"><a href="#"><span>Ben Rabe</span></a></li>
+				<li id="menu-item-18444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18444"><a href="#"><span>Natalie Robinson</span></a></li>
+				<li id="menu-item-18445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18445"><a href="#"><span>Dylan Sievers</span></a></li>
+				<li id="menu-item-18446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18446"><a href="#"><span>Alexis Williams</span></a></li>
 			</ul>
 		</div>
 	</div>
