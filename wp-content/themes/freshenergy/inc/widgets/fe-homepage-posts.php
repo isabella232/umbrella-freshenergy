@@ -89,30 +89,39 @@ class fe_homepage_posts extends WP_Widget {
 					);
 
 
-					// the first post gets wrapped in a span8, the second through fourth posts get wrapped in a span4
-					// Hope that there are more than 4 posts in the 
-					switch ( $i ) {
-						case 1:
-							echo '<div class=" display-block span8">';
-							largo_render_template( 'partials/widget', 'fe-home-big', $context );
-							echo '</div>';
-							break;
-						case 2:
-							echo '<div class="span4">';
-							largo_render_template( 'partials/widget', 'fe-home-small', $context );
-							break;
-						case 3:
-							largo_render_template( 'partials/widget', 'fe-home-small', $context );
-							break;
-						case 4:
-							largo_render_template( 'partials/widget', 'fe-home-small', $context );
-							echo '</div>';
-							break;
+					// // the first post gets wrapped in a span8, the second through fourth posts get wrapped in a span4
+					// // Hope that there are more than 4 posts in the category
+					// switch ( $i ) {
+					// 	case 1:
+					// 		echo '<div class=" display-block span8">';
+					// 		largo_render_template( 'partials/widget', 'fe-home-big', $context );
+					// 		echo '</div>';
+					// 		break;
+					// 	case 2:
+					// 		echo '<div class="span4">';
+					// 		largo_render_template( 'partials/widget', 'fe-home-small', $context );
+					// 		break;
+					// 	case 3:
+					// 		largo_render_template( 'partials/widget', 'fe-home-small', $context );
+					// 		break;
+					// 	case 4:
+					// 		largo_render_template( 'partials/widget', 'fe-home-small', $context );
+					// 		echo '</div>';
+					// 		break;
+					// }
+
+					if ($i == 4) {
+						echo '</div><div class="row-fluid">';
 					}
+
+					echo '<div class="span4">';
+					largo_render_template( 'partials/widget', 'fe-home-card', $context );
+					echo '</div>';
 
 				}
 
-				echo '</div>'; // end the widget's primary div
+				echo '</div><a href=""><button>More Recent News</button></a>'; // end the widget's primary div
+
 			$output .= ob_get_clean();
 
 			// print all of the items

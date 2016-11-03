@@ -4,7 +4,7 @@
 if ( has_post_thumbnail() ) { ?>
 	<div class="row-fluid fe-home-big">
 		<div class="span6">
-			<a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail( 'mediaum' ); ?></a>
+			<a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail( 'medium' ); ?></a>
 		</div>
 		<div class="span6">
 			<h5><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h5>

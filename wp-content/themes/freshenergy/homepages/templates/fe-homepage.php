@@ -9,6 +9,10 @@ global $largo, $shown_ids, $tags;
 <div id="fe-top" class="row-fluid clearfix">
 	<?php echo $topStories; ?>
 </div>
+<div id="fe-top-alt" class="row-fluid clearfix">
+	<div class="background-container"></div>
+	<?php echo $topStoriesAlt; ?>
+</div>
 <div id="fe-homepage-cta" class="row-fluid clearfix">
 	<?php dynamic_sidebar( 'homepage-cta' ); ?>
 </div>
@@ -21,3 +25,15 @@ global $largo, $shown_ids, $tags;
 <div id="fe-homepage-footer">
 	<?php dynamic_sidebar( 'homepage-footer' ); ?>
 </div>
+
+
+<script>
+jQuery(document).ready(function(){
+	var $ = jQuery;
+
+	var main = $('.prominence-homepage-featured')[0];
+	var source = $(main).find ('img').attr('src');
+
+	$('#fe-top-alt .background-container').css('background-image', 'url(' + source + ')');
+});
+</script>

@@ -36,3 +36,9 @@ function fe_styles() {
 	wp_enqueue_style( 'fe', get_stylesheet_directory_uri() . '/css/child' . $suffix . '.css' );
 }
 add_action( 'wp_enqueue_scripts', 'fe_styles', 20 );
+
+function fe_js() {
+    wp_enqueue_script( 'fe_js', get_stylesheet_directory_uri() . '/js/fe.js', array( 'jquery' ), '1.0', true );
+}
+
+add_action('wp_enqueue_scripts', 'fe_js');

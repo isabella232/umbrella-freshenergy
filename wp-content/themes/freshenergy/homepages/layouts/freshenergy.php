@@ -78,10 +78,50 @@ class FreshEnergyHome extends Homepage {
 
 		ob_start();
 
+		echo '<div id="top-stories-container">';
+
 		foreach ( $posts as $post ) {
 			setup_postdata( $post );
 			get_template_part( 'partials/home-topstory' );
 		}
+
+		echo '</div>';
+
+		wp_reset_postdata();
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Output the markup for the homepage top stories
+	 */
+	function topStoriesAlt() {
+		$posts = $this->get_topStories();
+
+		global $post;
+
+		ob_start();
+
+		echo '<div id="top-stories-container"><div class="inner">';
+		$i = 0;
+
+		foreach ( $posts as $post ) {
+			$i++;
+			setup_postdata( $post );
+
+			if ($i == 1) {
+				echo '<div class="span8">';
+				get_template_part( 'partials/home-topstoryalt-main' );
+				echo '</div>';
+			} else {
+				echo '<div class="span4">';
+				get_template_part( 'partials/home-topstoryalt' );
+				echo '</div>';
+			}
+			
+		}
+
+		echo '</div></div>';
 
 		wp_reset_postdata();
 
@@ -129,8 +169,8 @@ function fe_add_homepage_widget_areas() {
 			'description' => __( 'You should place one text widget here, which contains the primary call to action of the site', 'fe' ),
 			'before_widget' => '<div class="span12">',
 			'after_widget' => '</div>',
-			'before_title' => '<h3 class="">',
-			'after_title' => '</h3>'
+			'before_title' => '<h3 class=""><span>',
+			'after_title' => '</span></h3>'
 		),
 		array(
 			'name' => __( 'Homepage Circles Menu', 'fe' ),
@@ -138,8 +178,8 @@ function fe_add_homepage_widget_areas() {
 			'description' => __( 'Place one Custom Menu widget here', 'fe' ),
 			'before_widget' => '<div class="span12">',
 			'after_widget' => '</div>',
-			'before_title' => '<h3 class="">',
-			'after_title' => '</h3>'
+			'before_title' => '<h3 class=""><span>',
+			'after_title' => '</span></h3>'
 		),
 		array(
 			'name' => __( 'Homepage Bottom', 'fe' ),
@@ -147,8 +187,8 @@ function fe_add_homepage_widget_areas() {
 			'description' => __( 'Place Fresh Energy Homepage Widgets here for each item in the custom menu in the Homepage Circles Menu', 'fe' ),
 			'before_widget' => '<div class="span12">',
 			'after_widget' => '</div>',
-			'before_title' => '<h3 class="">',
-			'after_title' => '</h3>'
+			'before_title' => '<h3 class=""><span>',
+			'after_title' => '</span></h3>'
 		),
 		array(
 			'name' => __( 'Homepage Footer', 'fe' ),
@@ -156,8 +196,8 @@ function fe_add_homepage_widget_areas() {
 			'description' => __( 'This appears at the bottom of the homepage.', 'fe' ),
 			'before_widget' => '<div class="span6">',
 			'after_widget' => '</div>',
-			'before_title' => '<h3 class="">',
-			'after_title' => '</h3>'
+			'before_title' => '<h3 class=""><span>',
+			'after_title' => '</span></h3>'
 		)
 	);
 

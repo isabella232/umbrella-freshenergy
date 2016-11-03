@@ -1,3 +1,344 @@
+
+@import '../../../less/_variables.less';
+@import '../../../less/_mixins.less';
+
+h3 {
+  text-align: center;
+  margin-bottom:3em;
+}
+
+#fe-top { 
+    display:none;
+    //border-bottom:2px solid @black;
+    //background-color:@secondary;
+    // background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkQAL3NnP8Z4TxQRwl3x+MYAEYB8RmROaABADFBQ6dnxePugAAAABJRU5ErkJggg==');
+    // background-repeat:repeat;
+    background-color: @grey3;
+
+    #top-stories-container {
+      max-width:1600px;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+    }
+
+    .span6 {
+        // width: 50%;
+        // max-width:700px;
+        position:relative;
+        height: 400px;
+        overflow:hidden;
+        //border: 2px solid @black;
+        margin:2em 1em;
+
+        h2 {
+            position: absolute;
+            bottom: 0;
+            color: @white;
+            //text-shadow:0 0 3px darken(@secondary,20%);
+            background-color: fade(@black,90%);
+            margin-bottom:0;
+            padding:1em;
+            font-size:1.5em;
+            min-width:100%;
+        }
+        img {
+            min-width: 100%;
+            max-width: inherit;
+            min-height: 100%;
+            max-height: inherit;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .translate-both;
+        }
+
+        &:nth-child(even) {
+            border-right:none;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+            display:none;
+        }
+    }
+}
+
+#fe-top-alt {
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+
+  .background-container {
+    background-color:@grey3;
+    min-height:100vh;
+    height:100%;
+    min-width:110%;
+    position:absolute;
+    top:10px;
+    left:-5%;
+    z-index: -1;
+    .blur-bg;
+  }
+
+  #top-stories-container {
+    padding-top:129px;
+
+    p {
+      display:none;
+    }
+
+    .inner {
+      .container-boundaries;
+      padding:3em 2.5%;
+
+      .span8 {
+        position:relative;
+        margin-bottom: 4em;
+
+        .post {          
+          border:none;
+
+          border:2px solid @grey2;
+          &:hover {
+            border-color: @accent1;
+            box-shadow: 0 0 20px fade(@accent1,10%);
+          }
+        }
+        img {
+          min-width:100%;
+        }
+
+        .card-text-styles;
+
+        .text-wrapper {
+          position:absolute;
+          top:0;
+          padding:1em 2em;
+          min-width: 100%;
+
+          .blocklink {
+            position:absolute;
+            width:100%;
+            height:100%;
+          }
+
+          h4 a {
+            font-size:1.5em;
+            margin-top:0;
+            color: @white;
+            text-shadow:0 0 10px fade(@black,50%);
+          }
+          .byline {
+            display:none;
+          }
+        }
+      }
+
+      .span4 {
+        .fe-card .post {
+          //border-color:transparent;
+          img {
+            margin-bottom: .5em;
+          }
+
+          .byline {
+            display:none;
+          }
+
+          h4 {
+            margin-bottom:0;
+          }
+        }
+      }
+
+      .span4:nth-of-type(2),
+      .span4:nth-of-type(3) {
+        display: none;
+      }
+    }
+
+    .row-fluid.fe-card {
+      .card;
+    }
+  }
+}
+
+#fe-homepage-cta {
+  background-color:@primary;
+  margin-top:-10px;
+
+  &>.widget {
+      .container-boundaries;
+      padding:3em 5% 2.5em;
+      color:@white;
+      font-size:3em;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+
+        button {
+          .cta-button;
+        }
+      }
+  }
+}
+
+#fe-homepage-circles {
+  background-color:@grey2;
+
+  &>.widget {
+    .container-boundaries;
+    padding:3em 5% 1em;
+  }
+
+  ul {
+    // .flex;
+    // .flexwrap;
+    // .flexaround;
+    text-align: center;
+  }
+
+  li {
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    display:inline-block;
+    text-align:center;
+    position:relative;
+    margin:0 2em 4em;
+    background-size:300px 300px;
+    .transition-slow;
+
+    &.clean-energy {
+      background-image:url('../images/clean-energy.jpg');
+      box-shadow: inset 0 0 0 150px @accent2;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @accent2;
+      }
+    }
+    &.energy-efficiency {
+      background-image:url('../images/energy-efficiency.jpg');
+      box-shadow: inset 0 0 0 150px @accent1;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @accent1;
+      }
+    }
+    &.global-warming-solutions {
+      background-image:url('../images/global-warming-solutions.jpg');
+      box-shadow: inset 0 0 0 150px @secondary;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @secondary;
+      }
+    }
+    &.energy-news-network {
+      background-image:url('../images/energy-news-network.jpg');
+      box-shadow: inset 0 0 0 150px @accent3;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @accent3;
+      }
+    }
+    &.electric-cars-buses {
+      background-image:url('../images/electric-cars-buses.jpg');
+      box-shadow: inset 0 0 0 150px @primary;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @primary;
+      }
+    }
+    &.better-buildings {
+      background-image:url('../images/better-buildings.jpg');
+      box-shadow: inset 0 0 0 150px @accent4;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @accent4;
+      }
+    }
+
+    a {
+      position:absolute;
+      width:100%;
+      height:100%;
+      left:0;
+      opacity:0;
+      .transition;
+      
+      span {
+        position:absolute;
+        top:50%;
+        left:50%;
+        .translate-both;
+        width:85%;
+        padding-top:.5em;
+      }
+
+      font-size:2.125em;
+      color:white;
+
+      &:hover {
+        background-color:fade(@black,20%);
+        text-decoration: none;
+        text-shadow:0 0 10px @black;
+
+      }
+    }
+
+
+  }
+}
+
+#fe-homepage-bottom {
+  background-color:@white;
+
+  >.widget {
+    .container-boundaries;
+    padding-top:3em;
+    padding-bottom:3em;
+
+    >.row-fluid{
+      margin-bottom:3em;
+    }
+
+    .span4 {
+
+      .row-fluid.fe-card {
+        .card;
+      }
+    }
+
+    a {
+      text-decoration: none;
+
+      button {
+        .cta-button;
+      }
+    }
+
+    
+  }
+}
+
+#fe-homepage-footer {
+  position: relative;
+  .widget {
+    padding:3em;
+    background-color:@grey3;
+    position:relative;
+    bottom:0;
+    margin-bottom:0;
+    min-height:400px;
+  }
+}
+
+
+/**
+ * Media Queries
+ */
 @media (min-width: 512px) {
   .clearleft:nth-child( 2n + 1 ) {
     clear: left;
