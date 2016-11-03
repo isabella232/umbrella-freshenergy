@@ -13,13 +13,14 @@ h3 {
     //background-color:@secondary;
     // background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkQAL3NnP8Z4TxQRwl3x+MYAEYB8RmROaABADFBQ6dnxePugAAAABJRU5ErkJggg==');
     // background-repeat:repeat;
+    margin-top:130px;
     background-color: @grey3;
 
     #top-stories-container {
-      max-width:1600px;
+      .container-boundaries;
       margin:0 auto;
-      display:flex;
-      justify-content:center;
+      .flex;
+      .flexbetween;
     }
 
     .span6 {
@@ -29,7 +30,7 @@ h3 {
         height: 400px;
         overflow:hidden;
         //border: 2px solid @black;
-        margin:2em 1em;
+        margin:2em 0;
 
         h2 {
             position: absolute;
@@ -65,6 +66,7 @@ h3 {
 }
 
 #fe-top-alt {
+  //display: none;
   min-height:100vh;
   position:relative;
   overflow:hidden;
@@ -167,8 +169,8 @@ h3 {
         }
       }
 
-      .span4:nth-of-type(2),
-      .span4:nth-of-type(3) {
+      .span4:nth-of-type(3),
+      .span4:nth-of-type(4) {
         display: none;
       }
     }
@@ -317,6 +319,10 @@ h3 {
 
     >.row-fluid{
       margin-bottom:3em;
+
+      &:nth-of-type(2) {
+        display: none;
+      }
     }
 
     .span4 {
