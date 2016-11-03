@@ -100,10 +100,7 @@ h3 {
 
         .post {          
           border:none;
-
-          border:2px solid @grey2;
           &:hover {
-            border-color: @accent1;
             box-shadow: 0 0 20px fade(@accent1,10%);
           }
         }
@@ -116,13 +113,21 @@ h3 {
         .text-wrapper {
           position:absolute;
           top:0;
+          left:0;
+          bottom:0;
           padding:1em 2em;
           min-width: 100%;
 
           .blocklink {
             position:absolute;
+            top:0;
+            left:0;
             width:100%;
             height:100%;
+
+            &:hover {
+              border: 2px solid @accent1;
+            }
           }
 
           h4 a {
@@ -146,7 +151,8 @@ h3 {
 
       .span4 {
         .fe-card .post {
-          //border-color:transparent;
+          border-color:transparent;
+          
           img {
             margin-bottom: .5em;
           }
