@@ -67,7 +67,7 @@ h3 {
 
 #fe-top-alt {
   //display: none;
-  min-height:100vh;
+  //min-height:100vh;
   position:relative;
   overflow:hidden;
 
@@ -380,6 +380,16 @@ h3 {
 
 #fe-homepage-footer {
   position: relative;
+  background-color:@grey3;
+  .clearfix;
+
+  .inner {
+    .container-boundaries;
+    background-color:@white;
+    padding:0;
+    .clearfix;
+  }
+
   .widget {
     padding:3em;
     background-color:@grey3;
@@ -387,6 +397,51 @@ h3 {
     bottom:0;
     margin-bottom:0;
     min-height:400px;
+
+    button, input[type=text] {
+      background-color:@primary;
+      border:none;
+      padding:.25em .5em;
+      color:@white;
+      font-weight:bold;
+      font-size:1.5em;
+      margin-right:.5em;
+
+      &[type=submit]{
+        background-color:@secondary;
+        display: block;
+        margin-top: .5em;
+        &:hover {
+          background-color:saturate(@secondary, 20%);
+        }
+      }
+    }
+
+    button:hover {
+      background-color:darken(@primary, 5%);
+    }
+
+    input[type=text] {
+      background-color:@white;
+      color:@grey1;
+    }
+
+    &:first-of-type{
+      margin-left:0;
+    }
+    &:last-of-type{
+      margin-right:0;
+
+      button[type=submit]{
+        display: inline-block;
+        margin-top: -6px;
+      }
+    }
+
+    h3 {
+      text-align:left;
+    }
+
   }
 }
 

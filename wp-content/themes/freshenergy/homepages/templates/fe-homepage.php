@@ -23,8 +23,29 @@ global $largo, $shown_ids, $tags;
 	<?php dynamic_sidebar( 'homepage-bottom' ); ?>
 </div>
 <div id="fe-homepage-footer">
-	<?php dynamic_sidebar( 'homepage-footer' ); ?>
+	<div class="inner">
+		<div class="widget span6">
+			<h3><span>Make a Donation</span></h3>
+			<form>
+				<button>$25</button>
+				<button>$50</button>
+				<button>$100</button>
+				<button>$500</button>
+				<button type="submit">Donate</button>
+			</form>
+		</div>
+		<div class="widget span6">
+			<h3><span>Sign Up for News and Updates</span></h3>
+			<form>
+				<input type="text" placeholder="First Name" />
+				<input type="text" placeholder="Last Name" />
+				<input type="text" placeholder="Email" />
+				<button type="submit">Sign Up</button>
+			</form>
+		</div>
+	</div>
 </div>
+
 
 
 
