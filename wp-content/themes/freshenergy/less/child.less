@@ -55,6 +55,7 @@ button, input, select, textarea {
 
 .global-nav {
 	min-width:100%;
+	padding:0;
 
 	ul li {
 		margin:0;
@@ -65,12 +66,12 @@ button, input, select, textarea {
 			background-color: @secondary;
 
 			a {
-				color:@black;
+				color:@white;
 			}
 		}
 
 		&.link-donate {
-			background-color: @primary;
+			background-color: @green;
 
 			a {
 				color:@white;
@@ -78,8 +79,7 @@ button, input, select, textarea {
 		}
 
 		&.link-login {
-			background-color: @black;
-			border-right:2px solid @grey0;
+			background-color: @primary;
 
 			a {
 				color:@white;
@@ -89,12 +89,13 @@ button, input, select, textarea {
 		a {
 			font-size: 1.5em;
 			padding:8px 1em 12px;
+			text-shadow:0 0 3px fade(@black, 20%);
 		}
 	}
 }
 
 #header-search {
-	padding-right:1em;
+	padding-right:4px;
 	input {
 		height: auto;
     	border: 2px solid white;
@@ -237,11 +238,10 @@ img.header_img {
 	}
 	.archive-description {
 		background-color:@primary;
-		//margin-top:-10px;
 
 		p {
 		  .container-boundaries;
-		  padding:3em 5% 2.5em;
+		  padding:2.5em 5%;
 		  color:@white;
 		  font-size:2em;
 		  text-align: center;
@@ -255,6 +255,9 @@ img.header_img {
 		  }
 		}
 	}
+
+	.category-backgrounds;
+
 	.related-topics {
 		background-color:@grey3;
 		
@@ -290,17 +293,17 @@ img.header_img {
 
         	.post {
 		          
-		          img {
-		            margin-bottom: .5em;
-		          }
+				img {
+					margin-bottom: .5em;
+				}
 
-		          .byline {
-		            display:none;
-		          }
+				.byline {
+					margin:.5em 0;
+				}
 
-		          h4 {
-		            margin-bottom:0;
-		          }
+				h4 {
+					margin-bottom:0;
+				}
 		    }
 		}
 		a {

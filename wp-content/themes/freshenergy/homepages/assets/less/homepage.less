@@ -102,9 +102,6 @@ h3 {
 
         .post {          
           border:none;
-          &:hover {
-            box-shadow: 0 0 20px fade(@accent1,10%);
-          }
         }
         img {
           min-width:100%;
@@ -126,10 +123,7 @@ h3 {
             left:0;
             width:100%;
             height:100%;
-
-            &:hover {
-              border: 2px solid @accent1;
-            }
+            .transition;
           }
 
           h4 a {
@@ -148,6 +142,46 @@ h3 {
           // padding: .444em .333em.333em;
           color: #fff;
           text-shadow: 0 0 10px rgba(0,0,0,.5);
+        }
+
+        .category-transportation-land-use, 
+        .category-electric-cars-buses {
+          &:hover {
+            border:2px solid @primary;
+            box-shadow: 0 0 20px fade(@primary,10%);
+          }
+        }
+        .category-global-warming .blocklink, 
+        .category-global-warming-solutions  .blocklink {
+          &:hover {
+            border:2px solid @accent1;
+            box-shadow: 0 0 20px fade(@accent1,10%);
+          }
+        }
+        .category-energy-efficiency  .blocklink {
+          &:hover {
+            border:2px solid @secondary;
+            box-shadow: 0 0 20px fade(@secondary,10%);
+          }
+        }
+        .category-clean-energy  .blocklink {
+          &:hover {
+            border:2px solid @accent2;
+            box-shadow: 0 0 20px fade(@accent2,10%);
+          }
+        }
+        .category-energy-news-network .blocklink, 
+        .category-changing-the-narrative  .blocklink {
+          &:hover {
+            border:2px solid @accent3;
+            box-shadow: 0 0 20px fade(@accent3,10%);
+          }
+        }
+        .category-better-buildings  .blocklink {
+          &:hover {
+            border:2px solid @accent4;
+            box-shadow: 0 0 20px fade(@accent4,10%);
+          }
         }
       }
 
@@ -238,18 +272,18 @@ h3 {
     }
     &.energy-efficiency {
       background-image:url('../images/energy-efficiency.jpg');
-      box-shadow: inset 0 0 0 150px @accent1;
-
-      &:hover {
-        box-shadow: inset 0 0 0 0 @accent1;
-      }
-    }
-    &.global-warming-solutions {
-      background-image:url('../images/global-warming-solutions.jpg');
       box-shadow: inset 0 0 0 150px @secondary;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @secondary;
+      }
+    }
+    &.global-warming-solutions {
+      background-image:url('../images/global-warming-solutions.jpg');
+      box-shadow: inset 0 0 0 150px @accent1;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 @accent1;
       }
     }
     &.energy-news-network {

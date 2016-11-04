@@ -88,6 +88,84 @@
    -webkit-transition: all .25s ease-in-out;
 }
 
+.category-backgrounds {
+  .category-electric-cars-buses .archive-description {
+    background-color: @primary;
+  }
+  .category-global-warming-solutions .archive-description {
+    background-color: @accent1;
+  }
+  .category-energy-efficiency .archive-description {
+    background-color: @secondary;
+  }
+  .category-clean-energy .archive-description {
+    background-color: @accent2;
+  }
+  .category-energy-news-network .archive-description {
+    background-color: @accent3;
+  }
+  .category-better-buildings .archive-description {
+    background-color: @accent4;
+  }
+}
+
+.category-card-colors {
+  .category-transportation-land-use, .category-electric-cars-buses {
+    &:hover {
+      border-color:@primary;
+      box-shadow: 0 0 20px fade(@primary,10%);
+    }
+    h5 a {
+      color:@primary;
+    }
+  }
+  .category-global-warming, .category-global-warming-solutions {
+    &:hover {
+      border-color:@accent1;
+      box-shadow: 0 0 20px fade(@accent1,10%);
+    }
+    h5 a {
+      color:@accent1;
+    }
+  }
+  .category-energy-efficiency {
+    &:hover {
+      border-color:@secondary;
+      box-shadow: 0 0 20px fade(@secondary,10%);
+    }
+    h5 a {
+      color:@secondary;
+    }
+  }
+  .category-clean-energy {
+    &:hover {
+      border-color:@accent2;
+      box-shadow: 0 0 20px fade(@accent2,10%);
+    }
+    h5 a {
+      color:@accent2;
+    }
+  }
+  .category-energy-news-network, .category-changing-the-narrative {
+    &:hover {
+      border-color:@accent3;
+      box-shadow: 0 0 20px fade(@accent3,10%);
+    }
+    h5 a {
+      color:@accent3;
+    }
+  }
+  .category-better-buildings {
+    &:hover {
+      border-color:@accent4;
+      box-shadow: 0 0 20px fade(@accent4,10%);
+    }
+    h5 a {
+      color:@accent4;
+    }
+  }
+}
+
 .card-text-styles {
   img {
     max-width:100%;
@@ -112,60 +190,7 @@
     margin:1em 0;
   }
 
-  .category-changing-the-narrative {
-    &:hover {
-      border-color:@accent3;
-      box-shadow: 0 0 20px fade(@accent3,10%);
-    }
-    h5 a {
-      color:@accent3;
-    }
-  }
-  .category-energy-efficiency {
-    &:hover {
-      border-color:@accent1;
-      box-shadow: 0 0 20px fade(@accent1,10%);
-    }
-    h5 a {
-      color:@accent1;
-    }
-  }
-  .category-clean-energy {
-    &:hover {
-      border-color:@accent2;
-      box-shadow: 0 0 20px fade(@accent2,10%);
-    }
-    h5 a {
-      color:@accent2;
-    }
-  }
-  .category-transportation-land-use, .category-electric-cars-buses {
-    &:hover {
-      border-color:@primary;
-      box-shadow: 0 0 20px fade(@primary,10%);
-    }
-    h5 a {
-      color:@primary;
-    }
-  }
-  .category-global-warming, .category-global-warming-solutions {
-    &:hover {
-      border-color:@secondary;
-      box-shadow: 0 0 20px fade(@secondary,10%);
-    }
-    h5 a {
-      color:@secondary;
-    }
-  }
-  .category-better-buildings {
-    &:hover {
-      border-color:@accent4;
-      box-shadow: 0 0 20px fade(@accent4,10%);
-    }
-    h5 a {
-      color:@accent4;
-    }
-  }
+  .category-card-colors;
 
   .byline {
     font-size:.8em;

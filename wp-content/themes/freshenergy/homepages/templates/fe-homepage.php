@@ -27,11 +27,14 @@ global $largo, $shown_ids, $tags;
 </div>
 
 
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 <script>
 jQuery(document).ready(function(){
 	var $ = jQuery;
 
-	var main = $('.prominence-homepage-featured')[0];
+	var main = $('#fe-top .span8')[0];
 	var source = $(main).find ('img').attr('src');
 
 	$('#fe-top-alt .background-container').css('background-image', 'url(' + source + ')');
