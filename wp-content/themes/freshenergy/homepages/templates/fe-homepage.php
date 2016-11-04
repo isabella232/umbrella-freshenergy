@@ -34,7 +34,7 @@ global $largo, $shown_ids, $tags;
 jQuery(document).ready(function(){
 	var $ = jQuery;
 
-	var main = $('#fe-top .span8')[0];
+	var main = $('#fe-top-alt .span8')[0];
 	var source = $(main).find ('img').attr('src');
 
 	$('#fe-top-alt .background-container').css('background-image', 'url(' + source + ')');
