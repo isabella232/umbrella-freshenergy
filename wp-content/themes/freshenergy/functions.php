@@ -38,7 +38,9 @@ function fe_styles() {
 add_action( 'wp_enqueue_scripts', 'fe_styles', 20 );
 
 function fe_js() {
+    wp_enqueue_script( 'typekit_js', get_stylesheet_directory_uri() . '/js/typekit.js', array(), '1.0', false );
     wp_enqueue_script( 'fe_js', get_stylesheet_directory_uri() . '/js/fe.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script('twitter', '//platform.twitter.com/widgets.js', array(), '3', true);
 }
 
 add_action('wp_enqueue_scripts', 'fe_js');
