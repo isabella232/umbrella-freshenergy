@@ -162,14 +162,32 @@ img.header_img {
     margin-bottom: 0;
     position: relative;
 
-    li {
+    .nav>li {
 
-      padding:0 0 0 2em;
+      margin:0 0 0 2em;
 
       >a {
         line-height: 79px;
 	    font-size: 1.25em;
 	    padding: 12px 0 0 0;
+
+        &:hover {
+          background-color:transparent;
+          color:@primary;
+        }
+      }
+    }
+
+    .dropdown-menu {
+    	border: 1px solid #ddd;
+    }
+
+    .dropdown-menu>li {
+
+      >a {
+        line-height: 1;
+	    font-size: 1.25em;
+	    padding: 12px;
 
         &:hover {
           background-color:transparent;
@@ -203,7 +221,7 @@ img.header_img {
 	    text-align: left;
 	}
 	.largo-about p {
-	    font-size: 1.125em;
+	    //font-size: 1.125em;
 	    margin-bottom:2em;
 	}
 }
