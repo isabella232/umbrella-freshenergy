@@ -29,7 +29,7 @@ $queried_object = get_queried_object();
 		</div>
 		<div class="archive-description"><?php echo $description; ?></div>
 		<?php do_action( 'largo_category_after_description_in_header' ); ?>
-		<?php get_template_part( 'partials/archive', 'category-related' ); ?>
+		<!--<?php get_template_part( 'partials/archive', 'category-related' ); ?>-->
 	</header>
 
 	<section class="container">
@@ -61,7 +61,7 @@ $queried_object = get_queried_object();
 
 <div id="fe-staff-circles" class="row-fluid clearfix">
 	<div class="widget widget-1 odd default span12">
-		<h3 class=""><span>Staff</span></h3>
+		<h3 class=""><span>Program Staff</span></h3>
 		<div class="menu-staff-container">
 			<ul id="menu-staff" class="menu">
 				<li id="menu-item-18442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18442"><a href="#"><span>Matt Privratsky</span></a></li>
@@ -76,19 +76,19 @@ $queried_object = get_queried_object();
 
 <div id="fe-reports">
 	<div class="widget widget-1 odd default span12">
-		<h3 class=""><span>Reports</span></h3>
+		<h3 class=""><span>Publications</span></h3>
 		<div class="row-fluid">
 			<div class="span4">
 				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Report 1</a></h4>
+				<h4><a>Publication 1</a></h4>
 			</div>
 			<div class="span4">
 				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Report 2</a></h4>
+				<h4><a>Publication 2</a></h4>
 			</div>
 			<div class="span4">
 				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Report 3</a></h4>
+				<h4><a>Publication 3</a></h4>
 			</div>
 		</div>
 	</div>

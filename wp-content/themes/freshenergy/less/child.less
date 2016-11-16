@@ -176,10 +176,25 @@ img.header_img {
           color:@primary;
         }
       }
+
+      &:last-of-type .dropdown-menu {
+		left: auto;
+		right: 0;
+	  }
     }
 
     .dropdown-menu {
     	border: 1px solid #ddd;
+    	max-width:300px;
+
+    	&:before {
+    		left:auto;
+		    right: 9px;
+		}
+		&:after {
+    		left:auto;
+		    right: 10px;
+		}
     }
 
     .dropdown-menu>li {
@@ -188,6 +203,7 @@ img.header_img {
         line-height: 1;
 	    font-size: 1.25em;
 	    padding: 12px;
+	    white-space: normal;
 
         &:hover {
           background-color:transparent;
