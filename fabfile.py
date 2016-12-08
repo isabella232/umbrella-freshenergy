@@ -41,7 +41,7 @@ def staging():
     """
     env.settings    = 'staging'
     env.hosts       = [ os.environ[ 'FRESHENERGY_STAGING_SFTP_HOST' ], ]   # ssh host for production.
-    env.user        = os.environ[ 'FRESHENERGY_STAGING_SFTP_USER' ],       # ssh user for production.
+    env.user        = os.environ[ 'FRESHENERGY_STAGING_SFTP_USER' ]        # ssh user for production.
     env.password    = os.environ[ 'FRESHENERGY_STAGING_SFTP_PASSWORD' ]    # ssh password for production.
     env.domain      = 'freshenergy.staging.wpengine.com'
     env.port        = '2222'
