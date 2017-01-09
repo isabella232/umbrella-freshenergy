@@ -652,36 +652,45 @@ body.normal.single-post {
 	}
 }
 
-.archive-background {
-	position:relative;
-	padding-bottom:0;
-	margin:0;
+.category-better-buildings,
+.category-clean-energy,
+.category-energy-efficiency,
+.category-energy-news-network,
+.category-global-warming-solutions,
+.category-electric-cars-buses {
 
-	.rss-subscribe-link {
-		color:#fff;
-		padding:1em;
-		position: absolute;
-	    right: 0;
-	    float:none;
-	}
+	&.archive-background {
+		position:relative;
+		padding-bottom:0;
+		margin:0;
 
-	h1 {
-	    font-size: 7em;
-	    text-align: center;
-	    color:white;
-	    text-shadow:0 0 20px fade(@black,50%);
-	    margin-bottom: 3px;
-	    position: absolute;
-	    top: 44%;
-	    left: 50%;
-	    .translate-both;
-	    z-index: 4;
+		.rss-subscribe-link {
+			color:#fff;
+			padding:1em;
+			position: absolute;
+		    right: 0;
+		    float:none;
+		}
+
+		h1 {
+		    font-size: 7em;
+		    text-align: center;
+		    color:white;
+		    text-shadow:0 0 20px fade(@black,50%);
+		    margin-bottom: 3px;
+		    position: absolute;
+		    top: 44%;
+		    left: 50%;
+		    .translate-both;
+		    z-index: 4;
+		}
 	}
 }
 
 /* ARCHIVE (NOT CATEGORY) */
 
-.archive:not(.category) {
+.archive:not(.category),
+.category-programs {
 	header#site-header {
 	    border-bottom: 36px solid @primary;
 	}
