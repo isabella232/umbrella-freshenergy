@@ -80,7 +80,7 @@ table, table tr, table td {
 		}
 
 		&.link-donate {
-			background-color: @accent2;
+			background-color: @accent1;
 
 			a {
 				color:@white;
@@ -149,8 +149,8 @@ header#site-header {
 }
 
 img.header_img {
-    width: 350px;
-    padding:.75em 0;
+    width: 250px;
+    padding: 1.25em 0;
 }
 
 #main-nav.navbar {
@@ -169,7 +169,7 @@ img.header_img {
       >a {
         line-height: 79px;
 	    font-size: 1.25em;
-	    padding: 12px 0 0 0;
+	    padding: 11px 0 0 0;
 
         &:hover {
           background-color:transparent;
@@ -227,6 +227,106 @@ img.header_img {
 	padding-top:0;
 }
 
+#fe-cta-footer {
+  position: relative;
+  background-color:@grey3;
+  .clearfix;
+
+  .inner {
+    .container-boundaries;
+    background-color:@white;
+    padding:0;
+    .clearfix;
+  }
+
+  .widget {
+    padding:3em;
+    background-color:@grey3;
+    position:relative;
+    bottom:0;
+    margin-bottom:0;
+    min-height:400px;
+
+    button, input[type=text] {
+      background-color:@primary;
+      border:none;
+      padding:.25em .5em;
+      color:@white;
+      font-weight:bold;
+      font-size:1.5em;
+      margin-right:.5em;
+
+      &[type=submit] {
+        background-color:@secondary;
+        display: block;
+        margin-top: .5em;
+        &:hover {
+          background-color:saturate(@secondary, 20%);
+        }
+      }
+    }
+
+    input[type=submit] {
+		background-color:@primary;
+		border:none;
+		padding:.25em .5em;
+		color:@white;
+		font-weight:bold;
+		font-size:1.5em;
+		margin-right:.5em;
+
+		background-color:@secondary;
+		display: block;
+		margin-top: .5em;
+		&:hover {
+		  background-color:saturate(@secondary, 20%);
+		}
+    }
+
+    a.fe-button:hover {
+    	text-decoration: none;
+    }
+
+    #surveyForm {
+    	label {
+    		position:absolute;
+			left:-10000px;
+			top:auto;
+			width:1px;
+			height:1px;
+			overflow:hidden;
+    	}
+    }
+
+    button:hover {
+      background-color:darken(@primary, 5%);
+    }
+
+    input[type=text] {
+      background-color:@white;
+      color:@grey1;
+    }
+
+    &:first-of-type{
+      margin-left:0;
+    }
+    &:last-of-type{
+      margin-right:0;
+
+      button[type=submit]{
+        display: inline-block;
+        margin-top: -6px;
+      }
+    }
+
+    h3 {
+      text-align:left;
+      margin-bottom:1em;
+    }
+
+  }
+}
+
 .footer-bg {
 	background-color:@black;
 }
@@ -249,8 +349,8 @@ img.header_img {
 	.hero-title {
 		position:relative;		
 	    min-height: 75vh;
-	    background-image: url(../images/default-category.jpg);
-
+	    //background-image: url(../images/default-category.jpg);
+	    background-color:@grey3;
 		background-size:cover;
 		background-position:center center;
 		background-repeat: no-repeat;
@@ -566,6 +666,33 @@ body.normal.single-post {
 	}
 }
 
+.archive-background {
+	position:relative;
+	padding-bottom:0;
+	margin:0;
+
+	.rss-subscribe-link {
+		color:#fff;
+		padding:1em;
+		position: absolute;
+	    right: 0;
+	    float:none;
+	}
+
+	h1 {
+	    font-size: 7em;
+	    text-align: center;
+	    color:white;
+	    text-shadow:0 0 20px fade(@black,50%);
+	    margin-bottom: 3px;
+	    position: absolute;
+	    top: 44%;
+	    left: 50%;
+	    .translate-both;
+	    z-index: 4;
+	}
+}
+
 /* ARCHIVE (NOT CATEGORY) */
 
 .archive:not(.category) {
@@ -618,6 +745,28 @@ body.normal.single-post {
 	#main-nav {
 		font-size:.8em;
 	}
+
+	/* Category Page */
+	.archive.category {
+		.hero-title {
+			position:relative;		
+		    min-height: 40vh;
+		}
+		.hero {
+		    max-height:40vh;
+		    overflow: hidden;
+
+			.background-container {
+			    max-height:40vh;
+			}
+		}
+		.archive-background {
+			h1 {
+			    font-size: 4em;
+			}
+		}
+	}
+
 	/* ARTICLE PAGE */
 	body.normal.page, 
 	body.normal.single-post {
@@ -647,6 +796,26 @@ body.normal.single-post {
   }
   body.normal.page article, body.normal.single-post article {
 	padding-top: 1em;
+  }
+  /* Category Page */
+  .archive.category {
+		.hero-title {
+			position:relative;		
+		    min-height: 35vh;
+		}
+		.hero {
+		    max-height:35vh;
+		    overflow: hidden;
+
+			.background-container {
+			    max-height:35vh;
+			}
+		}
+		.archive-background {
+			h1 {
+			    font-size: 3em;
+			}
+		}
   }
   .archive.category .archive-description {
   	font-size:.8em;
@@ -703,6 +872,26 @@ body.normal.single-post {
 }
 
 @media (max-width: 480px) {
+	/* Category Page */
+    .archive.category {
+		.hero-title {
+			position:relative;		
+		    min-height: 25vh;
+		}
+		.hero {
+		    max-height:25vh;
+		    overflow: hidden;
+
+			.background-container {
+			    max-height:25vh;
+			}
+		}
+		.archive-background {
+			h1 {
+			    font-size: 2em;
+			}
+		}
+    }
 	.archive.category .secondary-featured-post {
 	    .fe-card {
 			width: 100%;
