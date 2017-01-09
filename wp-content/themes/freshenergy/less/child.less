@@ -230,6 +230,7 @@ img.header_img {
 #fe-cta-footer {
   position: relative;
   background-color:@grey3;
+  margin-top:1em;
   .clearfix;
 
   .inner {
@@ -245,7 +246,7 @@ img.header_img {
     position:relative;
     bottom:0;
     margin-bottom:0;
-    min-height:400px;
+    min-height:420px;
 
     button, input[type=text] {
       background-color:@primary;
@@ -255,11 +256,12 @@ img.header_img {
       font-weight:bold;
       font-size:1.5em;
       margin-right:.5em;
+      margin-bottom: .5em;
 
       &[type=submit] {
         background-color:@secondary;
         display: block;
-        margin-top: .5em;
+        //margin-top: .5em;
         &:hover {
           background-color:saturate(@secondary, 20%);
         }
@@ -269,15 +271,15 @@ img.header_img {
     input[type=submit] {
 		background-color:@primary;
 		border:none;
-		padding:.25em .5em;
+		padding:.21em .5em;
 		color:@white;
 		font-weight:bold;
 		font-size:1.5em;
 		margin-right:.5em;
 
 		background-color:@secondary;
-		display: block;
-		margin-top: .5em;
+		display: inline-block;
+		margin-bottom: .5em;
 		&:hover {
 		  background-color:saturate(@secondary, 20%);
 		}
@@ -554,7 +556,7 @@ img.header_img {
 
     h3 {
 	  text-align: center;
-	  margin-bottom:3em;
+	  margin-bottom:2em;
 	}
 
 
@@ -768,6 +770,15 @@ body.normal.single-post {
     height: 150px;
     font-size: .7em;
   }
+
+  #fe-cta-footer .widget {
+  	min-height:0;
+
+  	&.span6 {
+	  width: 100%;
+	  margin: 0 0 1em 0;
+	}
+  }
 }
 
 @media (max-width:768px) {
@@ -839,6 +850,12 @@ body.normal.single-post {
 }
 
 @media (max-width: 529px) {
+	/* CATEGORY PAGE */
+	.archive.category #fe-reports>.widget .span4 {
+	    width: 48%;
+	    padding: 0 1em .5em 0;
+	    font-size: 1em;
+	}
 	/* ARTICLE PAGE */
 	body.normal.page, 
 	body.normal.single-post {
@@ -853,6 +870,15 @@ body.normal.single-post {
 }
 
 @media (max-width: 480px) {
+	#fe-cta-footer .widget {
+		min-height:0;
+
+	    button, input[type=text],
+	    input[type=submit] {
+	      font-size:1.25em;
+	      width:100%;
+	    }
+	}
 	/* Category Page */
     .archive.category {
 		.hero-title {
@@ -902,7 +928,6 @@ body.normal.single-post {
 		width: 120px;
 		height: 120px;
 		font-size: .5em;
-		background-size: 120px 120px;
 	}
 }
 
