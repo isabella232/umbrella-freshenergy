@@ -74,6 +74,24 @@ $queried_object = get_queried_object();
 	</div>
 </div>
 
+<?php
+	$args = array(
+	    'cat' => get_the_category(),
+	    'post_type' => array( 'page', 'post' )
+	);
+	query_posts( $args );
+
+	// The Loop
+	while ( have_posts() ) : the_post();
+
+	    the_title();
+
+	endwhile;
+
+	// Reset Query
+	wp_reset_query();
+?>
+
 <div id="fe-reports">
 	<div class="widget widget-1 odd default span12">
 		<h3 class=""><span>Publications</span></h3>
