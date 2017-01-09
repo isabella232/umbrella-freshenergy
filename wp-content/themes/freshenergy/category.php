@@ -87,33 +87,39 @@ $queried_object = get_queried_object();
 
 
 
-<div id="fe-reports">
-	<div class="widget widget-1 odd default span12">
-		<h3 class=""><span>Publications</span></h3>
-		<div class="row-fluid">
-			<?php
-				$currentid = get_queried_object_id();
-				$args = array( 
-					'category__and' => array( $currentid, 9 ),  // 9 is the publications category
-					'post_type' => 'post',
-					'posts_per_page' => 3
-				);
-				query_posts( $args );
 
-				while ( have_posts() ) : the_post();
-					echo '<div class="span4"><a href="' . get_permalink() . '">';
-					//echo '<img src="';
-					// echo get_stylesheet_directory_uri();
-					// echo '/images/report-placeholder.png"';
-					//echo '/>';
-					the_post_thumbnail('medium');
-					echo '</a><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4></div>';
-				endwhile;
+<?php
+	$currentid = get_queried_object_id();
+	$args = array( 
+		'category__and' => array( $currentid, 9 ),  // 9 is the publications category
+		'post_type' => 'post',
+		'posts_per_page' => 3
+	);
+	query_posts( $args );
+	if ( have_posts() ) { ?>
 
-				wp_reset_query();
-			?>
+		<div id="fe-reports">
+			<div class="widget widget-1 odd default span12">
+				<h3 class=""><span>Publications</span></h3>
+				<div class="row-fluid">
+
+					<?php while ( have_posts() ) : the_post();
+						echo '<div class="span4"><a href="' . get_permalink() . '">';
+						//echo '<img src="';
+						// echo get_stylesheet_directory_uri();
+						// echo '/images/report-placeholder.png"';
+						//echo '/>';
+						the_post_thumbnail('medium');
+						echo '</a><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4></div>';
+					endwhile; ?>
+
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
+
+	<?php } ?>
+
+<?php wp_reset_query();?>
+		
 
 <?php get_footer();
