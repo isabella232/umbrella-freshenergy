@@ -120,7 +120,7 @@ class fe_homepage_posts extends WP_Widget {
 
 				}
 
-				echo '</div><a href=""><button>More Recent News</button></a>'; // end the widget's primary div
+				echo '</div><a href="/category/programs/"><button>More Recent News</button></a>'; // end the widget's primary div
 
 			$output .= ob_get_clean();
 
