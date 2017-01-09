@@ -64,29 +64,18 @@ $queried_object = get_queried_object();
 		<h3 class=""><span>Program Staff</span></h3>
 		<div class="menu-staff-container">
 			<ul id="menu-staff" class="menu">
-				<li id="menu-item-18442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18442"><a href="#"><span>Matt Privratsky</span></a></li>
-				<li id="menu-item-18443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18443"><a href="#"><span>Ben Rabe</span></a></li>
-				<li id="menu-item-18444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18444"><a href="#"><span>Natalie Robinson</span></a></li>
-				<li id="menu-item-18445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18445"><a href="#"><span>Dylan Sievers</span></a></li>
-				<li id="menu-item-18446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18446"><a href="#"><span>Alexis Williams</span></a></li>
-
 				<?php
 					$currentid = get_queried_object_id();
-					//echo $currentid;
-					
 					$args = array( 
-						'category__and' => array( $currentid ) ,  //, 1098
+						'category__and' => array( $currentid, 1089 ),  // 1089 is the Staff category
 						'post_type' => 'page'
 					);
 					query_posts( $args );
 
-
 					while ( have_posts() ) : the_post();
-
-						echo '<li><a href="' . the_permalink() . '"><span>' . the_title() . '</span></a></li>';
-
-					    //the_title();
-
+						echo '<li style="background-image:url(';
+						the_post_thumbnail_url( 'large' );
+						echo ')"><a href="' . get_permalink() . '"><span>' . get_the_title() . '</span></a></li>';
 					endwhile;
 
 					wp_reset_query();
