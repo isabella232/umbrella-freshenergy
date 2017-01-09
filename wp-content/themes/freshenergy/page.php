@@ -1,7 +1,7 @@
 <?php
 /**
- * Single Post Template: Default Template
- * Template Name: Default Template
+ * Single Page Template: Featured Image Template
+ * Template Name: Featured Image Template
  * Description: Shows featured image and one-column text layout
  */
 
