@@ -75,9 +75,12 @@ $queried_object = get_queried_object();
 </div>
 
 <?php
+	$current = single_cat_title();
+	
 	$args = array(
-	    'cat' => get_the_category(),
-	    'post_type' => array( 'page', 'post' )
+	    'cat' => $current,
+	    'field'    => 'name',
+	    'post_type' => 'page'
 	);
 	query_posts( $args );
 
