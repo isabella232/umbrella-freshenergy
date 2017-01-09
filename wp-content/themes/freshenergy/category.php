@@ -91,18 +91,27 @@ $queried_object = get_queried_object();
 	<div class="widget widget-1 odd default span12">
 		<h3 class=""><span>Publications</span></h3>
 		<div class="row-fluid">
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 1</a></h4>
-			</div>
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 2</a></h4>
-			</div>
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 3</a></h4>
-			</div>
+			<?php
+				$currentid = get_queried_object_id();
+				$args = array( 
+					'category__and' => array( $currentid, 9 ),  // 9 is the publications category
+					'post_type' => 'post',
+					'posts_per_page' => 3
+				);
+				query_posts( $args );
+
+				while ( have_posts() ) : the_post();
+					echo '<div class="span4"><a href="' . get_permalink() . '">';
+					//echo '<img src="';
+					// echo get_stylesheet_directory_uri();
+					// echo '/images/report-placeholder.png"';
+					//echo '/>';
+					the_post_thumbnail('medium');
+					echo '</a><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4></div>';
+				endwhile;
+
+				wp_reset_query();
+			?>
 		</div>
 	</div>
 </div>
