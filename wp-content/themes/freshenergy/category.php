@@ -69,31 +69,34 @@ $queried_object = get_queried_object();
 				<li id="menu-item-18444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18444"><a href="#"><span>Natalie Robinson</span></a></li>
 				<li id="menu-item-18445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18445"><a href="#"><span>Dylan Sievers</span></a></li>
 				<li id="menu-item-18446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18446"><a href="#"><span>Alexis Williams</span></a></li>
+
+				<?php
+					$currentid = get_queried_object_id();
+					//echo $currentid;
+					
+					$args = array( 
+						'category__and' => array( $currentid ) ,  //, 1098
+						'post_type' => 'page'
+					);
+					query_posts( $args );
+
+
+					while ( have_posts() ) : the_post();
+
+						echo '<li><a href="' . the_permalink() . '"><span>' . the_title() . '</span></a></li>';
+
+					    //the_title();
+
+					endwhile;
+
+					wp_reset_query();
+				?>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<?php
-	$currentid = get_queried_object_id();
-	//echo $currentid;
-	
-	$args = array( 
-		'category__and' => array( $currentid, 1098 ) ,
-		'post_type' => 'page'
-	);
-	query_posts( $args );
 
-	// The Loop
-	while ( have_posts() ) : the_post();
-
-	    the_title();
-
-	endwhile;
-
-	// Reset Query
-	wp_reset_query();
-?>
 
 <div id="fe-reports">
 	<div class="widget widget-1 odd default span12">
