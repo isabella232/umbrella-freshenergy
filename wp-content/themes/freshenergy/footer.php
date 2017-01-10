@@ -18,10 +18,11 @@
 			<div class="widget span6">
 				<h3><span>Make a Donation</span></h3>
 				<form>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$25</button></a>
+					<!-- <a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$25</button></a>
 					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$50</button></a>
 					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$100</button></a>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$500</button></a>
+					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$500</button></a> -->
+					<p>Support practical strategies to reduce global warming and advance clean energy and transportation.</p>
 					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button type="submit">Donate</button></a>
 				</form>
 			</div>
