@@ -78,10 +78,6 @@ wp-content/debug.log
 /wp-content/plugins/*
 /wp-content/themes/*
 
-# do version-control the theme we care about
-!/wp-content/themes/freshenergy
-!/wp-content/themes/fresh-energy
-
 # large/disallowed file types
 # a CDN should be used for these
 *.hqx
@@ -118,3 +114,8 @@ wp-content/debug.log
 *.avi
 
 /.htaccess
+# do version-control the theme we care about
+!/wp-content/themes/freshenergy
+!/wp-content/themes/fresh-energy
+!/wp-content/themes/midwestenergynews
+
