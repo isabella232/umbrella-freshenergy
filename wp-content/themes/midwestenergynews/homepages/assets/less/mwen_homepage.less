@@ -1,0 +1,217 @@
+/* ==========================================================================
+Homepage Styles
+========================================================================== */
+
+@import "../less/_variables.less";
+@import "../less/_utilities.less";
+
+/* Largo defualt spacing fixes
+----------------------------- */
+
+#content.MWENHomepageLayout {
+  margin-top: 1em;
+  padding: 0;
+}
+
+#homepage-top {
+  .horizontal-byline;
+  .widget_text {
+    padding-top: 0;
+  }
+  .span4 {
+    padding-left: 32px;
+  }
+  h2 {
+	font-size: 72px;
+	margin-bottom: 8px;
+	line-height: 1.1;
+	a {
+      color: @black;
+      line-height: 1.08;
+      .color-animation;
+      vertical-align: baseline;
+      &:hover {
+        color: @blue;
+        text-decoration: none;
+      }
+    }
+  }
+  .hero {
+    header {
+	  max-width: 90%;
+	  margin: -8em auto 0;
+	  background-color: rgba(255,255,255,0.7);
+      padding: 24px;
+      position: relative;
+    }
+    h2 {
+      font-size: 48px;
+    }
+  }
+  a.url.fn.n {
+    color: @black;
+  }
+}
+
+.stories article {
+  border-bottom: 0;
+}
+
+h5.top-tag,
+.widget .widgettitle {
+  font-family: @sans;
+}
+
+// this is a largo selector
+.row-fluid > [class*='span']:last-child > * > .widget,
+.row-fluid > [class*='span']:last-child > .widget {
+  padding-right: 24px;
+}
+
+
+/* homepage bottom
+----------------------------- */
+
+#homepage-bottom {
+  border-top: 1px solid @greyXL;
+  display: inline-block;
+  margin-bottom: 2.5em;
+  .horizontal-byline;
+
+  .hg-row {
+    overflow: hidden;
+    padding-left: 2.12765957%;
+  }
+
+  .span4,
+  .span6 {
+    margin-top: 2.5em;
+    border-right: 1px solid @greyXL;
+    margin-bottom: -999999px;
+    padding-bottom: 999999px;
+    padding-right: 2.12765957%;
+
+    &:last-child { border-right: none; }
+
+    article {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      border: 1px solid @greyXL;
+      max-width: 100%;
+      width: 100%;
+      float: none;
+      margin: 0 0 20px;
+    }
+  }
+
+  h5.top-tag {
+    font-size: 16px;
+  }
+  .span6:last-child article {
+    border-bottom: 0px;
+  }
+  .hg-row {
+    margin: 0 0 24px;
+    @media (max-width: 767px) {
+	  margin: 0px;
+	}
+    border-top: 1px solid @greyXL;
+    &:first-child {
+      border: none;
+    }
+    display: inherit;
+  }
+  .row:first-child {
+    border-top: none;
+    margin-top: 0;
+  }
+  h2 {
+    .headline-links;
+    line-height: 1.1;
+    font-size: 44px;
+    &.has-photo {
+      font-size: 32px;
+      line-height: 1.2;
+      .has-photo-links;
+    }
+  }
+}
+
+
+/* Responsive
+----------------------------- */
+@media (max-width: 850px) {
+
+  #homepage-top .span8,
+  #homepage-top .span4,
+  #homepage-bottom div.span4,
+  #homepage-bottom div.span6 {
+    width: 100%;
+    display: block;
+  }
+
+  #homepage-top {
+    margin-top: 0;
+    margin-bottom: 0;
+    h2 {
+	  font-size: 48px;
+    }
+    article {
+	 margin-top: 24px;
+    }
+    .hero {
+	  margin-bottom: 0;
+      h2 {
+	    font-size: 40px;
+      }
+      p {
+	    margin-bottom: 0.25em;
+      }
+    }
+    .span4 {
+	  margin: 0 auto;
+      float: none;
+      clear: both;
+      padding: 0;
+    }
+    .span8 {
+	  margin-bottom: 2em;
+    }
+  }
+
+  #homepage-bottom {
+    margin-bottom: 12px;
+    padding-top: 12px;
+    .span4 ,
+    .span6 {
+      margin: 12px 0;
+      border-right: 0;
+      border-bottom: 1px solid @greyXL;
+      padding-bottom: 12px;
+    }
+    .hg-row {
+      border-top: 0px;
+    }
+    article .headline {
+      max-width: 100%;
+      margin-top: 0;
+    }
+    h2,
+    h2.has-photo {
+      font-size: 42px;
+      margin-bottom: 0.35em;
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #homepage-top {
+	article {
+      margin-top: 0;
+	}
+  }	
+}

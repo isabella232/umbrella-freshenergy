@@ -1,0 +1,285 @@
+/**
+ * 6.0 - Archives
+ *
+ * Styles for tag, category, series (archive templates in general)
+ */
+
+/*
+ * Category-specific styles
+ */
+body.category-digest,
+body.category-national {
+  .rss-link,
+  .seen-roundups-widget,
+  .mwen-roundups-widget {
+    display: none;
+  }
+  .archive-background,
+  .archive-description {
+    margin: 0;
+  }
+}
+
+/*
+ * The "Related Topics" piece
+ */
+
+.related-topics {
+  a {
+    color: @link;
+  }
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid @greyXL;
+  padding-bottom: 24px;
+  h5 {
+    font-family: @sans;
+    font-weight: 700;
+  }
+}
+
+/*
+ * General Archive Styles
+ */
+
+.archive,
+.search {
+  .horizontal-byline(16px);
+
+  /*
+   * Header
+   */
+  header.archive-background {
+    padding-bottom: 24px;
+  }
+
+  .archive-description {
+    margin: 0 0 24px;
+  }
+
+  #page {
+    padding: 0 3em;
+    @media (max-width: 768px) {
+      padding: 0 1em;
+    }
+  }
+
+  #main > div.clearfix:first-child {
+    background: @white;
+    position: relative;
+    z-index: 99;
+    padding: 18px 0;
+  }
+
+  h1.page-title {
+    font-family: @headline;
+    color: @black;
+    font-size: 54px;
+    @media (max-width: 768px ) {
+      font-size: 40px;
+    }
+  }
+
+  /* 
+   * Body and Entry
+   */
+
+  h2.entry-title {
+    .archive-links;
+    margin-bottom: 0.5em;
+  }
+
+  .entry-content p {
+    a {
+      color: @black;
+      text-decoration: underline;
+      &:hover {
+        color: @blue;
+      }
+    }
+  }
+
+  /* 
+   * Fancy Responsivating on Headlines
+   */
+  .primary-featured-post {
+    margin-bottom: 48px;
+    h2 {
+      font-size: 54px;
+      margin-bottom: 0.25em;
+      @media (max-width: 480px) {
+        font-size: 32px;
+      }
+    }
+  }
+
+  .secondary-featured-post {
+    padding-left: 2.12765957%;
+    padding-right: 2.12765957%;
+
+    @media (min-width: 769px) {
+      padding: 0 0 48px;
+      & > .row-fluid {
+        overflow: hidden; /* Used to make article elments appear as equal height columns */
+      }
+    }
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+
+    article {
+      @media (min-width: 769px) {
+        border-left: 1px solid @greyXL;
+        padding: 0 0 0 2.12765957%;
+
+        /* Make equal height columns */
+        margin-bottom: -999999px;
+        padding-bottom: 999999px;
+      }
+
+      @media (max-width: 480px) {
+        margin-bottom: 22px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:first-child {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      img {
+        margin-bottom: 1.25em;
+      }
+    }
+
+    h2 {
+      font-size: 30px;
+      line-height: 1.1;
+      @media (max-width: 769px) {
+        font-size: 32px;
+      }
+      @media (max-width: 480px) {
+        font-size: 28px;
+      }
+      @media (max-width: 320px) {
+        font-size: 22px;
+      }
+    }
+
+    .has-post-thumbnail h2 {
+      font-size: 28px;
+      @media (max-width: 769px) {
+        font-size: 24px;
+      }
+      @media (max-width: 480px) {
+        font-size: 28px;
+      }
+      @media (max-width: 320px) {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      img {
+        margin-top: 0;
+        margin-bottom: 1.2em;
+      }
+    }
+  }
+  .archive-description p,
+  .entry-content p {
+    font-size: 20px;
+  }
+
+  .stories {
+    h2.entry-title {
+      font-size: 36px;
+      line-height: 1.1;
+      @media (max-width: 768px) {
+        font-size: 30px;
+      }
+    }
+    article {
+      border-bottom: 1px solid @greyXL;
+      margin-bottom: 36px;
+    }
+    @media (min-width: 769px) {
+      padding-right: 36px;
+    }
+  }
+
+  /* 
+   * 2x2 layout for <969px browser widths of .secondary-featured
+   */
+  @media (min-width:769px) and (max-width: 969px) {
+    .secondary-featured-post .row-fluid > * {
+      width: 50% - (1* 2.12765957%);
+    }
+    .secondary-featured-post article:nth-child(3) {
+      clear: left;
+    }
+    .secondary-featured-post article:nth-child(odd) {
+      border-left: none;
+      margin-left: 2.12765957%;
+      padding-left: 0;
+    }
+    .secondary-featured-post article:nth-child(even) {
+      padding-right: 2.12765957%;
+    }
+    .secondary-featured-post article :last-child {
+      margin-bottom: 1em;
+    }
+  }
+
+  /* 
+   * Apply Fancy Links to Posts only
+   */
+  #sidebar {
+    margin-top: 8px;
+    @media (min-width: 960px) {
+      padding-left: 32px;
+    }
+    @media (min-width: 768px) {
+      padding-left: 0;
+    }
+  }
+}
+
+/*
+ * Search Results Cleanup
+ */
+.search #main {
+  margin-top:2.5em;
+}
+
+/**
+ * Styles specifically for the Google Custom Search 
+ */
+.gcs_container {
+  .gs-webResult.gs-result a.gs-title:link,
+  .gs-webResult.gs-result a.gs-title:link b,
+  .gs-imageResult a.gs-title:link,
+  .gs-imageResult a.gs-title:link b,
+  .gs-webResult.gs-result a.gs-title:visited,
+  .gs-webResult.gs-result a.gs-title:visited b,
+  .gs-imageResult a.gs-title:visited,
+  .gs-imageResult a.gs-title:visited b,
+  .titleLink,
+  .sl-table a,
+  .sl-table-ol a,
+  .c_ a,
+  .titleLink, .sl-table a,
+  .sl-table-ol a, .c_ a
+  .gsc-results .gsc-cursor-box .gsc-cursor-current-page,
+  .gsc-results .gsc-cursor-box .gsc-cursor-page {
+      color: @link;
+  }
+
+  .gs-webResult div.gs-visibleUrl,
+  .gs-imageResult div.gs-visibleUrl {
+      color: @black;
+  }
+}

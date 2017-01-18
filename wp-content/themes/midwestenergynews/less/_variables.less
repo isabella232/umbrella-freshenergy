@@ -1,0 +1,56 @@
+/* ==========================================================================
+Colors
+========================================================================== */
+@black: #282828;
+
+@greyD: #494A52;
+@greyM: #54555F;
+@greyL: #7E7E7E;
+@greyXL: lighten(@greyL, 30%);
+
+@white: #fff;
+
+@blue: #3F9ABA; // blue
+@link: #086a86; // link
+@storylink: #b4d7e6; // story link
+
+@orange: #fd7130; // orange
+
+
+/* ==========================================================================
+Fonts -- be sure to see _typography.less
+========================================================================== */
+
+/* @headline
+ * Kepler Standard Display
+ * For bold headlines
+----------------------------- */
+@headline: "kepler-std-display", "Georgia", serif;
+
+/* @serif
+ * Kepler Standard
+ * For body and other general aplications
+----------------------------- */
+@serif: "kepler-std","Georgia",serif;
+
+
+/* @sans
+ * Proxima Nova
+ * For labels, bylines, photo credits, etc
+ * NOTE: Be sure to see override in _typography.less
+----------------------------- */
+@sans: "proxima-nova", "Helvetica Neue", "Helvetica",sans-serif;
+
+
+/**
+ * Largo navbar color changes
+ */
+// Main navbar
+@navbarRuleColor: @greyXL;
+
+// Sticky navbar
+@stickyNavbarText: @white;
+@stickyNavbarLinkColor: @stickyNavbarText;
+@headerFooterColor: @greyD;
+@stickyNavbarLinkColorHover: darken(@stickyNavbarLinkColor, 5%);
+@stickyNavbarBackgroundColor: @greyD;

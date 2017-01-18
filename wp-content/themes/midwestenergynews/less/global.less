@@ -1,0 +1,101 @@
+/*
+ * Global Styles
+ *
+ * Resetting and rebuilding styles have been helped along thanks to the fine
+ * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
+ */
+
+/*
+ * Rework major structural margins and padding for the custom Midwest Energy full-width design
+ */
+#before-footer,
+#footer-logos,
+#page,#site-footer,
+.sticky-footer-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+}
+
+
+/*
+ * Footer
+ */
+#site-footer a {
+  color: @grayLighter;
+}
+
+/*
+ * Buttons
+ * @see the .btn-styles function in _utilities.less
+ */
+.btn {
+  border-radius: 0;
+}
+.btn-primary {
+  .btn-styles('primary');
+}
+h5.top-tag {
+  font-family: @sans;  
+  color: @greyL;
+}
+#nav-below.pager {
+  .load-more {
+    a {
+      .btn-styles('primary');
+    }
+  }
+}
+
+/*
+ * Footer Large Display Fix
+ */
+@media screen and (min-width: 1440px) {
+  #site-footer {
+    padding-left: 3em;
+    padding-right: 3em;
+    box-sizing: border-box;
+  }
+}
+
+/**
+ * Load more posts button
+ */
+#nav-below,
+#mwen-hp-nav-below {
+  width: 100%;
+  text-align: center;
+  &.loading {
+    .load-more {
+      padding-right: 2em;
+      margin-left: 2em;
+    }
+  }
+  .load-more {
+    margin: 0 0 3em;
+    a {
+      font-size: 1.25em;
+      padding: 0.75em;
+    }
+  }
+}
+
+
+/**
+ * Roundup styles
+ */
+.roundup {
+  .entry-content h4 {
+  margin-bottom: 12px;
+  }
+  .lr-saved-link {
+    float: none;
+  }
+  .lr-saved-link.sponsored {
+    padding: 10px;
+    margin-bottom: 24px;
+    background-color: #EDF1F4;
+    font-style: italic;
+    color: #808080;
+  }
+}
