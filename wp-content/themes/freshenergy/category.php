@@ -91,7 +91,7 @@ $queried_object = get_queried_object();
 <?php
 	$currentid = get_queried_object_id();
 	$args = array( 
-		'category__and' => array( $currentid, 9 ),  // 9 is the publications category
+		'category__and' => array( $currentid, 9, 1114 ),  // 9 is the publications category, 1114 is featured publication
 		'post_type' => 'post',
 		'posts_per_page' => 3
 	);
