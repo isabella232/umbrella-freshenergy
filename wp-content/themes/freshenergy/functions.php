@@ -126,7 +126,7 @@ function fe_category_archive_posts( $query ) {
 		$featured_post_ids[] = $fpost->ID;
 
 	$query->set( 'post__not_in', $featured_post_ids );
-	$query->set( 'cat', '-9' );
+	$query->set( 'cat', '-9,-1089' ); // 9=publications, 1089=staff
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts', 15 );
 
