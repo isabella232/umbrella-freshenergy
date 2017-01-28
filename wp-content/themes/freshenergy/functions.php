@@ -74,6 +74,7 @@ $my_post_array = array('post','page');
 function fe_get_featured_posts_in_category( $category_id, $number = 4 ) {
 	$args = array(
 		'cat' => $category_id,
+		'category__not_in' => array( 9, 1089 ), // 9=publications, 1089=staff
 		'numberposts' => $number,
 		'post_status' => 'publish'
 	);
@@ -126,8 +127,6 @@ function fe_category_archive_posts( $query ) {
 		$featured_post_ids[] = $fpost->ID;
 
 	$query->set( 'post__not_in', $featured_post_ids );
-	$query->set( 'cat', '-9' ); // 9=publications, 1089=staff
-	//$query->set( 'cat', '-1089' ); 
 }
-add_action( 'pre_get_posts', 'fe_category_archive_posts', 15 );
+add_action( 'pre_get_posts', 'fe_category_archive_posts' );
 
