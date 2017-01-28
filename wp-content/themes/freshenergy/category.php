@@ -57,6 +57,7 @@ $queried_object = get_queried_object();
 				</div>
 		<?php }
 	}
+	wp_reset_query();
 } ?>
 	</section>
 </div>

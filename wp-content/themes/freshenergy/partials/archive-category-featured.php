@@ -6,7 +6,7 @@
 			<div class="text-wrapper">
 				<h5 class="top-tag"><?php largo_top_term( array( 'post' => $featured_post->ID ) ); ?></h5>
 				<h4><a href="<?php echo get_permalink($featured_post->ID); ?>"><?php echo get_the_title($featured_post->ID); ?></a></h4>
-				<span class="byline"><?php echo largo_byline(false); ?></span>
+				<span class="byline"><?php largo_byline(true, false, $featured_post); ?></span>
 				<?php largo_excerpt( $featured_post->ID, 1 ); ?>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 			<div class="text-wrapper">
 				<h5 class="top-tag"><?php largo_top_term( array( 'post' => $featured_post->ID ) ); ?></h5>
 				<h4><a href="<?php echo get_permalink($featured_post->ID); ?>"><?php echo get_the_title($featured_post->ID); ?></a></h4>
-				<span class="byline"><?php echo largo_byline(false); ?></span>
+				<span class="byline"><?php largo_byline(true, false, $featured_post); ?></span>
 				<?php largo_excerpt( $featured_post->ID, 1 ); ?>
 			</div>
 		</div>
