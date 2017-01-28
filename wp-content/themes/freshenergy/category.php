@@ -35,7 +35,9 @@ $queried_object = get_queried_object();
 	<section class="container">
 
 	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
-		$featured_posts = largo_get_featured_posts_in_category( $wp_query->query_vars['category_name'] );
+		$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
+		//query_posts( $args );
+		$featured_posts = fe_get_featured_posts_in_category( get_queried_object_id() );
 
 		if ( count( $featured_posts ) > 0 ) {
 			$secondary_featured = $featured_posts;
