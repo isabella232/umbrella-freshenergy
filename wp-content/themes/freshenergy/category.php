@@ -80,7 +80,7 @@ $queried_object = get_queried_object();
 						echo ')"><a href="' . get_permalink() . '"><span>' . get_the_title() . '</span></a></li>';
 					endwhile;
 
-					wp_reset_query();
+					//wp_reset_query();
 				?>
 			</ul>
 		</div>
