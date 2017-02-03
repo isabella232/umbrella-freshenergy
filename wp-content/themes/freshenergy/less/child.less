@@ -377,11 +377,21 @@ img.header_img {
 /**
  * Category Page
  */
+.archive.category:not(.category-better-buildings),
+.archive.category:not(.category-renewable-electricity),
+.archive.category:not(.category-energy-performance),
+.archive.category:not(.category-energy-news-network),
+.archive.category:not(.category-global-warming-solutions),
+.archive.category:not(.category-electric-cars-buses) {
+	.hero-title {
+		background-image: url(../images/default-category.jpg);
+	}
+}
 .archive.category {
 	.hero-title {
 		position:relative;		
 	    min-height: 75vh;
-	    //background-image: url(../images/default-category.jpg);
+	    background-image: none;
 	    background-color:@grey3;
 		background-size:cover;
 		background-position:center center;
@@ -736,7 +746,7 @@ body.normal.single-post {
 }
 
 .category-better-buildings,
-.category-clean-energy,
+.category-renewable-electricity,
 .category-energy-performance,
 .category-energy-news-network,
 .category-global-warming-solutions,
