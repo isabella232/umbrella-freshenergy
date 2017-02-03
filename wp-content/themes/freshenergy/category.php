@@ -54,9 +54,9 @@ $queried_object = get_queried_object();
 					</div>
 					<a href="/category/programs/"><button>More News</button></a>
 				</div>
-		<?php }
-	}
-} ?>
+			<?php }
+		}
+	} ?>
 	</section>
 </div>
 
