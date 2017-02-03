@@ -19,7 +19,7 @@
 				<h3><span>Make a Donation</span></h3>
 
 				<?php 
-					$id=18540; 
+					$id=19314; // "Donate Blurb"
 					$post = get_post($id); 
 					$content = apply_filters('the_content', $post->post_content); 
 					echo $content;  
