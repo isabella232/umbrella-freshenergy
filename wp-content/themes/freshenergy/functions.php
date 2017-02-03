@@ -106,6 +106,45 @@ function fe_get_featured_posts_in_category( $category_id, $number = 4 ) {
 }
 
 /**
+ * Get posts marked as "Featured in category" for a given category name.
+ *
+ * @param string $category_name the category to retrieve featured posts for.
+ * @param integer $number total number of posts to return, backfilling with regular posts as necessary.
+ */
+function fe_get_featured_posts_in_publication( $category_id, $number = 4 ) {
+	$args = array(
+		'cat' => $category_id,
+		'numberposts' => $number,
+		'post_status' => 'publish'
+	);
+
+	$tax_query = array(
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'prominence',
+				'field' => 'slug',
+				'terms' => 'category-featured'
+			)
+		)
+	);
+
+	// Get the featured posts
+	$featured_posts = get_posts( array_merge( $args, $tax_query ) );
+
+	// Backfill with regular posts if necessary
+	if ( count( $featured_posts ) < (int) $number ) {
+		$needed = (int) $number - count( $featured_posts );
+		$regular_posts = get_posts( array_merge( $args, array(
+			'numberposts' => $needed,
+			'post__not_in' => array_map( function( $x ) { return $x->ID; }, $featured_posts )
+		)));
+		$featured_posts = array_merge( $featured_posts, $regular_posts );
+	}
+
+	return $featured_posts;
+}
+
+/**
  * Helper for getting posts in a category archive, excluding featured posts.
  * 
  * @param WP_Query $query
