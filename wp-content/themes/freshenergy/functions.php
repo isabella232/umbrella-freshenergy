@@ -65,6 +65,18 @@ $my_post_array = array('post','page');
 }
 
 
+function my_change_query($query){
+    if(is_archive()){
+       $blog_term = get_term_by('slug', 'blogs', 'category');
+       $blog_term_id = $blog_term->term_id;
+       //$query->set('cat', $blog_term_id);//Include category with ID $blog_term_id
+       $query->set('cat','-1089');//Exclude category with ID  $blog_term_id
+    }  
+ return $query;
+};
+add_action( 'pre_get_posts', 'my_change_query'); 
+
+
 /**
  * Get posts marked as "Featured in category" for a given category name.
  *
@@ -129,4 +141,7 @@ function fe_category_archive_posts( $query ) {
 	$query->set( 'post__not_in', $featured_post_ids );
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts' );
+
+
+
 

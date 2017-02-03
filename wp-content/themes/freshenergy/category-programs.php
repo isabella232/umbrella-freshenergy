@@ -13,6 +13,11 @@ $queried_object = get_queried_object();
 <div class="clearfix">
 
 	<?php
+
+		// global $wp_query;
+		// $args = array_merge( $wp_query->query, array( 'category_name' => 'Staff' ) );
+		// query_posts( $args );
+
 		if ( have_posts() || largo_have_featured_posts() ) {
 
 			// queue up the first post so we know what type of archive page we're dealing with
@@ -78,7 +83,7 @@ $queried_object = get_queried_object();
 				$post_id = largo_get_term_meta_post( $queried_object->taxonomy, $queried_object->term_id );
 				largo_hero($post_id);
 
-				echo '<h1 class="page-title">News</h1>';
+				echo '<h1 class="page-title">Recent News</h1>';
 				
 
 				if ( isset( $description ) ) {
