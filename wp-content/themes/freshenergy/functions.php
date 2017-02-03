@@ -139,6 +139,7 @@ function fe_category_archive_posts( $query ) {
 		$featured_post_ids[] = $fpost->ID;
 
 	$query->set( 'post__not_in', $featured_post_ids );
+	$query->set('cat','-1089');//Exclude category with ID  $blog_term_id
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts' );
 
