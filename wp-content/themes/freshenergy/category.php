@@ -29,14 +29,13 @@ $queried_object = get_queried_object();
 		</div>
 		<div class="archive-description"><?php echo $description; ?></div>
 		<?php do_action( 'largo_category_after_description_in_header' ); ?>
-		<!--<?php get_template_part( 'partials/archive', 'category-related' ); ?>-->
+		<?php //get_template_part( 'partials/archive', 'category-related' ); ?>
 	</header>
 
 	<section class="container">
 
 	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
 		$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
-		//query_posts( $args );
 		$featured_posts = fe_get_featured_posts_in_category( get_queried_object_id() );
 
 		if ( count( $featured_posts ) > 0 ) {
@@ -79,8 +78,6 @@ $queried_object = get_queried_object();
 						the_post_thumbnail_url( 'large' );
 						echo ')"><a href="' . get_permalink() . '"><span>' . get_the_title() . '</span></a></li>';
 					endwhile;
-
-					//wp_reset_query();
 				?>
 			</ul>
 		</div>
