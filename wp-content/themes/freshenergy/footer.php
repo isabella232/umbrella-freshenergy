@@ -17,14 +17,13 @@
 		<div class="inner">
 			<div class="widget span6">
 				<h3><span>Make a Donation</span></h3>
-				<form>
-					<!-- <a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$25</button></a>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$50</button></a>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$100</button></a>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button>$500</button></a> -->
-					<p>Support practical strategies to reduce global warming and advance clean energy and transportation.</p>
-					<a href="https://secure.fresh-energy.org/np/clients/freshenergy/donation.jsp" class="fe-button"><button type="submit">Donate</button></a>
-				</form>
+
+				<?php 
+					$id=18540; 
+					$post = get_post($id); 
+					$content = apply_filters('the_content', $post->post_content); 
+					echo $content;  
+				?>
 			</div>
 			<div class="widget span6">
 				<h3><span>Sign Up for News and Updates</span></h3>

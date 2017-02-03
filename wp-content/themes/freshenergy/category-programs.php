@@ -117,12 +117,15 @@ $queried_object = get_queried_object();
 				largo_content_nav( 'nav-below' );
 			?>
 			</div><!-- end content -->
-			<?php get_sidebar(); ?>
+			<?php //get_sidebar( 'sidebar-main' ); ?>
+
 		</div>
 		<?php } else {
 			get_template_part( 'partials/content', 'not-found' );
 		}
 	?>
 </div>
+
+<?php wp_reset_query();?>
 
 <?php get_footer();
