@@ -668,6 +668,10 @@ img.header_img {
 	}
 }
 
+.archive .entry-content.with-hero{
+    position: relative;
+}
+
 /* ARTICLE PAGE */
 body.normal.page, 
 body.normal.single-post {
@@ -784,8 +788,13 @@ body.normal.single-post {
 		.container-boundaries;
 		margin:180px auto 2em;
 	}
-	#content.search-results {
-		margin-left:0;
+	#content {
+		.container-boundaries;
+		max-width:900px;
+		padding:3em 2.5%;
+		.span8 {
+			width:100%;
+		}
 	}
 }
 
