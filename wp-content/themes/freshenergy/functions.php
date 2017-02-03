@@ -65,16 +65,16 @@ $my_post_array = array('post','page');
 }
 
 
-function my_change_query($query){
-    if(is_archive()){
-       $blog_term = get_term_by('slug', 'blogs', 'category');
-       $blog_term_id = $blog_term->term_id;
-       //$query->set('cat', $blog_term_id);//Include category with ID $blog_term_id
-       $query->set('cat','-1089');//Exclude category with ID  $blog_term_id
-    }  
- return $query;
-};
-add_action( 'pre_get_posts', 'my_change_query'); 
+// function my_change_query($query){
+//     if(is_archive()){
+//        $blog_term = get_term_by('slug', 'blogs', 'category');
+//        $blog_term_id = $blog_term->term_id;
+//        //$query->set('cat', $blog_term_id);//Include category with ID $blog_term_id
+//        $query->set('cat','-1089');//Exclude category with ID  $blog_term_id
+//     }  
+//  return $query;
+// };
+// add_action( 'pre_get_posts', 'my_change_query'); 
 
 
 /**
