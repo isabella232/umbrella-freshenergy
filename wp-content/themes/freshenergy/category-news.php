@@ -79,10 +79,10 @@ $queried_object = get_queried_object();
 				$post_id = largo_get_term_meta_post( $queried_object->taxonomy, $queried_object->term_id );
 				largo_hero($post_id);
 
-				//echo '<h1 class="page-title">Recent News</h1>';
-				echo '<h1 class="page-title">';
-				echo $title;
-				echo '</h1>';
+				echo '<h1 class="page-title">Recent News</h1>';
+				// echo '<h1 class="page-title">';
+				// echo $title;
+				// echo '</h1>';
 				
 
 				if ( isset( $description ) ) {
