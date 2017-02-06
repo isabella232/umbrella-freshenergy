@@ -384,25 +384,17 @@ img.header_img {
 /**
  * Category Page
  */
-.archive.category:not(.category-better-buildings),
-.archive.category:not(.category-renewable-electricity),
-.archive.category:not(.category-energy-performance),
-.archive.category:not(.category-energy-news-network),
-.archive.category:not(.category-global-warming-solutions),
-.archive.category:not(.category-electric-cars-buses) {
-	.hero-title {
-		background-image: url(../images/default-category.jpg);
-	}
-}
+
 .archive.category {
 	.hero-title {
 		position:relative;		
-	    min-height: 75vh;
+	    min-height: 50vh;
 	    background-image: none;
 	    background-color:@grey3;
 		background-size:cover;
 		background-position:center center;
 		background-repeat: no-repeat;
+		background-image: url(../images/default-category.jpg);
 	}
 	.hero {
 		margin:0;
@@ -428,7 +420,7 @@ img.header_img {
 			position:relative;
 			z-index: 1;
 			width:1300px;
-			opacity: 0;
+			//opacity: 0;
 		}
 	}
 	.archive-background {
@@ -642,6 +634,20 @@ img.header_img {
 	  }
 	}
 
+}
+
+.archive.category.category-better-buildings,
+.archive.category.category-renewable-electricity,
+.archive.category.category-energy-performance,
+.archive.category.category-energy-news-network,
+.archive.category.category-global-warming-solutions,
+.archive.category.category-electric-cars-buses {
+	.hero img{
+		opacity: 0;
+	}
+	.hero-title {
+		background-image:none;
+	}
 }
 
 .archive.category-energy-matters,
