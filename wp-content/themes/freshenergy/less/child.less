@@ -867,6 +867,33 @@ body.normal.single-post {
 	}
 }
 
+
+/* Fix for problem category cards */
+.category-energy-news-network, 
+.category-changing-the-narrative {
+	.fe-card>div {
+		&:hover {
+	      border-color:@accent3;
+	      box-shadow: 0 0 20px fade(@accent3,10%);
+	    }
+	    h5 a {
+	      color:@accent3;
+	    }
+	}
+}
+
+.category-better-buildings {
+	.fe-card>div {
+		&:hover {
+	      border-color:@accent4;
+	      box-shadow: 0 0 20px fade(@accent4,10%);
+	    }
+	    h5 a {
+	      color:@accent4;
+	    }
+	}
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1230px) {
 
