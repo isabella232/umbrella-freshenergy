@@ -518,7 +518,7 @@ img.header_img {
 	        	display:none;
 	        }
 
-        	.post {
+        	>div {
 		          
 				img {
 					margin-bottom: .5em;
@@ -686,11 +686,10 @@ img.header_img {
 	    margin: 0 0 24px 0;
 
 		.rss-subscribe-link {
-			color:@accent1;
-			padding:1em;
-			position: absolute;
-		    right: 0;
-		    float:none;
+		    padding: 1em;
+		    position: relative;
+		    right: auto;
+		    float: right;
 		}
 
 		h1 {
@@ -709,6 +708,7 @@ img.header_img {
 
 .archive .entry-content.with-hero{
     position: relative;
+    z-index: 2;
 }
 
 article .has-thumbnail.is-image {
@@ -993,7 +993,7 @@ body.normal.single-post {
 		width: 100%;
 		margin: 0 0 1em 0;
 
-		.post {
+		>div {
 		  padding:1em;
 		}
 		img {
@@ -1080,7 +1080,7 @@ body.normal.single-post {
 			width: 100%;
 			margin: 0 0 1em 0;
 
-			.post {
+			>div {
 			  padding:1em;
 			}
 			img {
