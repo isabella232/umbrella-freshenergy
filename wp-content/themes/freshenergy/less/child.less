@@ -677,8 +677,21 @@ img.header_img {
 .archive.category-programs,
 .archive.category-news,
 .archive.category-publications {
-	.hero img{
-		opacity: 1;
+
+	.entry-content.with-hero {
+	    position: relative;
+	    z-index: 2;
+	    margin: 1em 0;
+	    padding: 0;
+	    width:100%;
+	}
+
+	article .hero.span12.is-image {
+		display:none;
+		
+		img{
+			opacity: 1;
+		}
 	}
 	.archive-background {
 	    position: static;
