@@ -8,6 +8,12 @@
  */
 get_header();
 $queried_object = get_queried_object();
+
+$title = single_cat_title( '', false );
+$description = category_description();
+$rss_link = get_category_feed_link( get_queried_object_id() );
+$posts_term = of_get_option( 'posts_term_plural', 'Stories' );
+$queried_object = get_queried_object();
 ?>
 
 <div class="clearfix">
@@ -79,10 +85,10 @@ $queried_object = get_queried_object();
 				$post_id = largo_get_term_meta_post( $queried_object->taxonomy, $queried_object->term_id );
 				largo_hero($post_id);
 
-				echo '<h1 class="page-title">Recent News</h1>';
-				// echo '<h1 class="page-title">';
-				// echo $title;
-				// echo '</h1>';
+				// echo '<h1 class="page-title">Recent News</h1>';
+				echo '<h1 class="page-title">';
+				echo $title;
+				echo '</h1>';
 				
 
 				if ( isset( $description ) ) {
@@ -105,6 +111,29 @@ $queried_object = get_queried_object();
 
 		<div class="row-fluid clearfix">
 			<div class="stories span8" role="main" id="content">
+			<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
+				$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
+				$featured_posts = fe_get_featured_posts_in_publication( get_queried_object_id() );
+
+				if ( count( $featured_posts ) > 0 ) {
+					$secondary_featured = $featured_posts;
+					if ( count( $secondary_featured ) > 0 ) { ?>
+						<div class="secondary-featured-post">
+							<div class="row-fluid clearfix"><?php
+								foreach ( $secondary_featured as $idx => $featured_post ) {
+										$shown_ids[] = $featured_post->ID;
+										largo_render_template(
+											'partials/archive',
+											'publication-featured',
+											array( 'featured_post' => $featured_post )
+										);
+								} ?>
+							</div>
+						</div>
+					<?php }
+				}
+			} ?>
+
 			<?php
 				// and finally wind the posts back so we can go through the loop as usual
 				rewind_posts();
