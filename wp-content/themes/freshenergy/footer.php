@@ -268,6 +268,7 @@ jQuery(document).ready( function($){
     $('#main-nav.navbar .nav>li').click( function(event){
     	var $this = $(this);
         event.stopPropagation();
+        $('#main-nav.navbar .nav>li .dropdown-menu').hide();
         $this.find('.dropdown-menu').show();
     });
 
