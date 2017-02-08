@@ -266,7 +266,7 @@
 jQuery(document).ready( function($){
 
     $('#main-nav.navbar .nav>li').click( function(event){
-    	var $this;
+    	var $this = $(this);
         event.stopPropagation();
         $this.find('.dropdown-menu').toggle();
     });
