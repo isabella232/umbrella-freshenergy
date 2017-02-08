@@ -272,8 +272,21 @@ jQuery(document).ready( function($){
         $this.find('.dropdown-menu').show();
     });
 
+    // $('#main-nav.navbar .nav>li').mouseout(function(){
+    // 	$('#main-nav.navbar .nav>li .dropdown-menu').hide();
+    // })
+
     $(document).click( function(){
         $('#main-nav.navbar .nav>li .dropdown-menu').hide();
+    });
+
+    $('#main-nav.navbar .nav>li').hover( function(event){
+    	var $this = $(this);
+        event.stopPropagation();
+        $('#main-nav.navbar .nav>li .dropdown-menu').hide();
+        $this.find('.dropdown-menu').show();
+    }, function(){
+    	$('#main-nav.navbar .nav>li .dropdown-menu').hide();
     });
 
 });
