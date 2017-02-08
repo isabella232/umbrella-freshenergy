@@ -1003,8 +1003,14 @@ body.normal.single-post {
     padding-top:0;
     border-top: 36px solid #007fb2;
   }
-  body.normal.page article, body.normal.single-post article {
+  body.normal.page article, 
+  body.normal.single-post article {
 	padding-top: 1em;
+
+	h1.entry-title, 
+  	h1.page-title {
+	  margin-top: 1.25em;
+    }
   }
   /* Category Page */
   .archive.category {
@@ -1064,6 +1070,22 @@ body.normal.single-post {
 		}
 	}
   }
+  
+}
+
+@media (max-width: 689px) {
+	.archive:not(.category),
+	.archive.category-programs,
+	.category-programs,
+	.archive.category-news,
+	.category-news,
+	.category-publications,
+	.search-results,
+	.error404 {
+		#main {
+			margin:0 auto 2em;
+		}
+	}
 }
 
 @media (max-width: 529px) {

@@ -113,7 +113,7 @@ $queried_object = get_queried_object();
 			<div class="stories span8" role="main" id="content">
 			<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
 				$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
-				$featured_posts = fe_get_featured_posts_in_publication( get_queried_object_id() );
+				$featured_posts = largo_get_featured_posts_in_category( $category_name );
 
 				if ( count( $featured_posts ) > 0 ) {
 					$secondary_featured = $featured_posts;
