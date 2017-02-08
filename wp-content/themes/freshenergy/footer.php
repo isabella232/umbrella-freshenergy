@@ -268,7 +268,7 @@ jQuery(document).ready( function($){
     $('#main-nav.navbar .nav>li').click( function(event){
     	var $this = $(this);
         event.stopPropagation();
-        $this.find('.dropdown-menu').toggle();
+        $this.find('.dropdown-menu').show();
     });
 
     $(document).click( function(){
