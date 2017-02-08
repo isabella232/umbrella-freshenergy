@@ -261,5 +261,22 @@
 	wp_footer();
 ?>
 
+<script>
+//Allow clicking instead of hover for dropdown menus
+jQuery(document).ready( function($){
+
+    $('#main-nav.navbar .nav>li').click( function(event){
+    	var $this;
+        event.stopPropagation();
+        $this.find('.dropdown-menu').toggle();
+    });
+
+    $(document).click( function(){
+        $('#main-nav.navbar .nav>li .dropdown-menu').hide();
+    });
+
+});
+</script>
+
 </body>
 </html>
