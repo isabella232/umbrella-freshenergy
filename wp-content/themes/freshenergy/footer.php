@@ -33,6 +33,7 @@
 					<input type="text" placeholder="Email" />
 					<button type="submit">Sign Up</button>
 				</form> -->
+				<!--START NEON FORM-->
 				<form name="pShoppingCartFormBean" method="post" action=
 				  "https://www.z2systems.com/np/publicaccess/survey.do" onsubmit=
 				  "return validateNeonForm();" id="pShoppingCartFormBean">
@@ -62,141 +63,28 @@
 				            "100" size="20" value="" id="person.email1" class="control_textbox" placeholder="Email"/>
 				          </span>
 
+				          <div id="survey.data.73.value1">
+				              <div>
+				                <script type="text/javascript">
+				//<![CDATA[
+				                var RecaptchaOptions = {theme : 'clean' };
+				                //]]>
+				                </script><script type="text/javascript" src=
+				                "https://www.google.com/recaptcha/api/challenge?k=6LfNY8ESAAAAAMsjdQac5-BZLA12zAmeHRw7ieCi">
+				</script>
+				              </div>
+				          </div>
+
 				          <span id="null1">
 				            <input type="submit" name="null" class=
 				            "control_button" value="Sign Up" id="null" />
 				          </span>
 				    </div><input type="hidden" name="orgId" value="freshenergy" />
 				  </form>
+				
 
-				<SCRIPT src="https://www.z2systems.com/np/js/regExpValidate.js" type=text/javascript></SCRIPT>
-				<script>
-				function validateNeonStandardEmail() {
-				    if (getElement("person.email1") && getElement("person.email1").value.trim().length > 0) {
-				        return validateSurveyEmail(getElement("person.email1").value);
-				    }
-				    return true;
-				} </script><SCRIPT language=javascript type=text/javascript > function validateNeonForm() {
-				    if (document.getElementById("direction").value == "previous") {
-				        return true;
-				    }
-				    if (!validateNeonStandardEmail()) {
-				        alert("The Email Address is invalid.");
-				        document.getElementById("person.email1").focus();
-				        return false;
-				    }
-				    var buttons = document.getElementsByClassName("control_button");
-				    for (var i = 0; i < buttons.length; i++) {
-				        buttons[i].disabled = true;
-				    }
-				    return true;
-				} </SCRIPT><SCRIPT language=javascript type=text/javascript > function populateValueFromRadio(textBoxId, radioId, hiddenObjId) {
-				    var radios = document.getElementsByName(radioId);
-				    var hiddenObj = document.getElementById(hiddenObjId);
-				    var txtboxObj = document.getElementById(textBoxId);
-				    for (var i = 0; i < radios.length; i++) {
-				        if (radios[i].checked) {
-				            hiddenObj.value = radios[i].value;
-				        }
-				    }
-				    if (txtboxObj != undefined && (hiddenObj.value == null || hiddenObj.value == "")) {
-				        var dAmt = trimAll(removeCurrency(txtboxObj.value));
-				        if (dAmt == "") {
-				            txtboxObj.focus();
-				        } else {
-				            hiddenObj.value = dAmt;
-				        }
-				    }
-				}
+			  <SCRIPT src="https://www.z2systems.com/np/js/regExpValidate.js" type=text/javascript></SCRIPT><script>function validateNeonStandardEmail(){if(getElement("person.email1") && getElement("person.email1").value.trim().length>0){return validateSurveyEmail(getElement("person.email1").value);}return true;}</script><SCRIPT language=javascript type=text/javascript>function validateNeonForm() { if(document.getElementById("direction").value=="previous"){  return true;}if(!validateNeonStandardEmail()){   alert("The Email Address is invalid.");    document.getElementById("person.email1").focus();    return false;}if(getElement("person.firstName")){  if ( !validateNotEmpty(document.getElementById("person.firstName").value ) ){    alert("First Name is required.");    document.getElementById("person.firstName").focus();    return false;  }}if(getElement("person.lastName")){  if ( !validateNotEmpty(document.getElementById("person.lastName").value ) ){    alert("Last Name is required.");    document.getElementById("person.lastName").focus();    return false;  }}if(getElement("person.email1")){  if ( !validateNotEmpty(document.getElementById("person.email1").value ) ){    alert("Email is required.");    document.getElementById("person.email1").focus();    return false;  }}  var buttons = document.getElementsByClassName("control_button");  for(var i=0;i<buttons.length;i++){      buttons[i].disabled = true;   }  return true;}</SCRIPT><SCRIPT language=javascript type=text/javascript>function populateValueFromRadio(textBoxId,radioId,hiddenObjId){var radios=document.getElementsByName(radioId);var hiddenObj = document.getElementById(hiddenObjId);var txtboxObj = document.getElementById(textBoxId);for(var i=0;i<radios.length;i++){  if(radios[i].checked){      hiddenObj.value=radios[i].value;  }}if( txtboxObj != undefined && (hiddenObj.value == null || hiddenObj.value == "") ) {   var dAmt = trimAll(removeCurrency(txtboxObj.value));   if (dAmt==""){      txtboxObj.focus();   } else {      hiddenObj.value = dAmt;   }}}function leavingTextBox(textBoxId,radioId,hiddenObjId){var radios=document.getElementsByName(radioId);var hiddenObj = document.getElementById(hiddenObjId);var txtboxObj = document.getElementById(textBoxId);for(var i=0;i<radios.length;i++){  if(radios[i].checked){    hiddenObj.value=radios[i].value;           if(txtboxObj != undefined && (radios[i].value == null || radios[i].value == "")) {        var dAmt = trimAll(removeCurrency(txtboxObj.value));               if (dAmt==""){                       alert("Please enter donation amount");                                      txtboxObj.focus();                                return false;          } else if (validateNumeric(dAmt)==false) {                                    alert("The donation amount should be a number.");                                   txtboxObj.focus();                                return false;          } else if (validatePositiveAndZero(dAmt) == false){                                       alert("The donation amount should be bigger than 0.");                                             return false;                          } else if(validateNumeric(dAmt)==true){                                       var numdAmt = dAmt;                                        numdAmt=numdAmt.replace(',','');                                  while(numdAmt.indexOf(',')!=-1){                                                     numdAmt=numdAmt.replace(',','');                                  }                                               numdAmt = numdAmt.split('.');                                         if(numdAmt[0].length>13){                                                              alert('Your donation amount is too large.');                                                    return false;                                          }                               hiddenObj.value = dAmt;                                   return true;            }               }     return true;  }}}function validatePositiveAndZero(val){                if(Number(val) <= 0){                        return false;          }}function validateAmount(){   var txtboxObj = document.getElementById('donation.amount');          if(txtboxObj != undefined){                                var dAmt = trimAll(removeCurrency(txtboxObj.value));                     if (dAmt==""){                                       alert("Please enter donation amount");                                                      txtboxObj.focus();                                                return false;                          } else if (validateNumeric(dAmt)==false) {                                                  alert("The donation amount should be a number.");                                                   txtboxObj.focus();                                                return false;                          } else if (validatePositiveAndZero(dAmt) == false){                                                     alert("The donation amount should be bigger than 0.");                                                             return false;                                          } else if (validateNumeric(dAmt)==true){                                                      var numdAmt = dAmt;                                                        numdAmt=numdAmt.replace(',','');                                                  while(numdAmt.indexOf(',')!=-1){                                                                     numdAmt=numdAmt.replace(',','');                                                  }                                                              numdAmt = numdAmt.split('.');                                                                if(numdAmt[0].length>13){                                                                              alert('Your donation amount is too large.');                                                                            return false;                                                          }                                               }               }                return true;}function associateToggle(val, elem){var elem = document.getElementById(elem);if(elem == null) return;if(val == 1){                elem.style.display="";}else if(val == 0){          elem.style.display="none";}}associateToggle(0, 'recurringDonation.recurringInterval1');</SCRIPT><!--END NEON FORM-->
 
-				function leavingTextBox(textBoxId, radioId, hiddenObjId) {
-				    var radios = document.getElementsByName(radioId);
-				    var hiddenObj = document.getElementById(hiddenObjId);
-				    var txtboxObj = document.getElementById(textBoxId);
-				    for (var i = 0; i < radios.length; i++) {
-				        if (radios[i].checked) {
-				            hiddenObj.value = radios[i].value;
-				            if (txtboxObj != undefined && (radios[i].value == null || radios[i].value == "")) {
-				                var dAmt = trimAll(removeCurrency(txtboxObj.value));
-				                if (dAmt == "") {
-				                    alert("Please enter donation amount");
-				                    txtboxObj.focus();
-				                    return false;
-				                } else if (validateNumeric(dAmt) == false) {
-				                    alert("The donation amount should be a number.");
-				                    txtboxObj.focus();
-				                    return false;
-				                } else if (validatePositiveAndZero(dAmt) == false) {
-				                    alert("The donation amount should be bigger than 0.");
-				                    return false;
-				                } else if (validateNumeric(dAmt) == true) {
-				                    var numdAmt = dAmt;
-				                    numdAmt = numdAmt.replace(',', '');
-				                    while (numdAmt.indexOf(',') != -1) {
-				                        numdAmt = numdAmt.replace(',', '');
-				                    }
-				                    numdAmt = numdAmt.split('.');
-				                    if (numdAmt[0].length > 13) {
-				                        alert('Your donation amount is too large.');
-				                        return false;
-				                    }
-				                    hiddenObj.value = dAmt;
-				                    return true;
-				                }
-				            }
-				            return true;
-				        }
-				    }
-				}
-
-				function validatePositiveAndZero(val) {
-				    if (Number(val) <= 0) {
-				        return false;
-				    }
-				}
-
-				function validateAmount() {
-				    var txtboxObj = document.getElementById('donation.amount');
-				    if (txtboxObj != undefined) {
-				        var dAmt = trimAll(removeCurrency(txtboxObj.value));
-				        if (dAmt == "") {
-				            alert("Please enter donation amount");
-				            txtboxObj.focus();
-				            return false;
-				        } else if (validateNumeric(dAmt) == false) {
-				            alert("The donation amount should be a number.");
-				            txtboxObj.focus();
-				            return false;
-				        } else if (validatePositiveAndZero(dAmt) == false) {
-				            alert("The donation amount should be bigger than 0.");
-				            return false;
-				        } else if (validateNumeric(dAmt) == true) {
-				            var numdAmt = dAmt;
-				            numdAmt = numdAmt.replace(',', '');
-				            while (numdAmt.indexOf(',') != -1) {
-				                numdAmt = numdAmt.replace(',', '');
-				            }
-				            numdAmt = numdAmt.split('.');
-				            if (numdAmt[0].length > 13) {
-				                alert('Your donation amount is too large.');
-				                return false;
-				            }
-				        }
-				    }
-				    return true;
-				}
-
-				function associateToggle(val, elem) {
-				    var elem = document.getElementById(elem);
-				    if (elem == null) return;
-				    if (val == 1) {
-				        elem.style.display = "";
-				    } else if (val == 0) {
-				        elem.style.display = "none";
-				    }
-				}
-				associateToggle(0, 'recurringDonation.recurringInterval1');
-				</SCRIPT><!--NEON FORM END-->  
 			</div>
 		</div>
 	</div>
