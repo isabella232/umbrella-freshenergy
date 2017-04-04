@@ -154,6 +154,15 @@ function fe_category_archive_posts( $query ) {
 	// don't muck with admin, non-categories, etc
 	if ( ! $query->is_category() || ! $query->is_main_query() || is_admin() ) return;
 
+	// Don't muck with these categories specifically
+	if (
+		$query->is_category( '26' ) || // powering progress
+		$query->is_category( '25' ) || // energy matters
+		$query->is_category( 'news' ) // news
+	) {
+		return;
+	}
+
 	// If this has been disabled by an option, do nothing
 	if ( of_get_option( 'hide_category_featured' ) == true ) return;
 
@@ -169,7 +178,3 @@ function fe_category_archive_posts( $query ) {
 	$query->set('cat','-1089'); // Exclude Staff category
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts' );
-
-
-
-

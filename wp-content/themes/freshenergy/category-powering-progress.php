@@ -34,35 +34,10 @@ $queried_object = get_queried_object();
 
 	<section class="container">
 
-		
-
 		<div class="row-fluid clearfix">
 			<div class="stories span8" role="main" id="content">
 
-			<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
-				$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
-				$featured_posts = fe_get_featured_posts_in_publication( get_queried_object_id() );
-
-				if ( count( $featured_posts ) > 0 ) {
-					$secondary_featured = $featured_posts;
-					if ( count( $secondary_featured ) > 0 ) { ?>
-						<div class="secondary-featured-post">
-							<div class="row-fluid clearfix"><?php
-								foreach ( $secondary_featured as $idx => $featured_post ) {
-										$shown_ids[] = $featured_post->ID;
-										largo_render_template(
-											'partials/archive',
-											'publication-featured',
-											array( 'featured_post' => $featured_post )
-										);
-								} ?>
-							</div>
-						</div>
-					<?php }
-				}
-			} ?>
-				
-			<?php 
+			<?php
 				do_action( 'largo_before_category_river' );
 				if ( have_posts() ) {
 					$counter = 1;
