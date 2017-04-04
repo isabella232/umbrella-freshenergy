@@ -309,27 +309,56 @@ img.header_img {
       }
     }
 
+    #recaptcha_widget_div {
+      box-sizing: border-box;
+    }
     #recaptcha_area {
       margin-bottom: 1em;
       td {
         background-color:transparent;
-        display: inline-block;
-        clear: both;
       }
-      img {
-        clear: none;
-        display: inline;
+      @media ( max-width:475px ) {
+        table {
+          border: none !important; // override !important style
+        }
+        td {
+          display: inline-block;
+          clear: both;
+          padding: 0 !important; // override inline style
+        }
+        img {
+          clear: none;
+          display: inline;
+        }
+        #recaptcha_logo {
+          height: 1.5em;
+          width: auto;
+        }
+        #recaptcha_response_field {
+          margin-bottom: 0;
+        }
+        #recaptcha_privacy {
+          padding-left: 7px;
+          padding-bottom: 7px;
+        }
+        input[type=text] {
+          margin-right: 0;
+          margin-top: 7px;
+        }
       }
-      #recaptcha_logo {
-        height: 1.5em;
-        width: auto;
-      }
-      #recaptcha_response_field {
-        margin-bottom: 0;
-      }
-      #recaptcha_privacy {
-        padding-left: 7px;
-        padding-bottom: 7px;
+      @media (max-width:397px) {
+        tr {
+          display: block;
+
+        }
+        input,
+        .recaptcha_input_area,
+        .recaptcha_image_cell,
+        #recaptcha_image {
+          // because otherwise these will be wider than the actual column containing them
+          width: 100% !important;
+          max-width: 100% !important;
+        }
       }
     }
 
