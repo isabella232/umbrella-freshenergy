@@ -310,11 +310,28 @@ img.header_img {
     }
 
     #recaptcha_area {
-	    margin-bottom: 1em;
-	}
-	#recaptcha_area td {
-		background-color:transparent;
-	}
+      margin-bottom: 1em;
+      td {
+        background-color:transparent;
+        display: inline-block;
+        clear: both;
+      }
+      img {
+        clear: none;
+        display: inline;
+      }
+      #recaptcha_logo {
+        height: 1.5em;
+        width: auto;
+      }
+      #recaptcha_response_field {
+        margin-bottom: 0;
+      }
+      #recaptcha_privacy {
+        padding-left: 7px;
+        padding-bottom: 7px;
+      }
+    }
 
     a.fe-button:hover {
     	text-decoration: none;
