@@ -152,19 +152,26 @@ function fe_get_featured_posts_in_publication( $category_id, $number = 4 ) {
  */
 function fe_category_archive_posts( $query ) {
 	// don't muck with admin, non-categories, etc
-	if ( ! $query->is_category() || ! $query->is_main_query() || is_admin() ) return;
+	if ( ! $query->is_category() || ! $query->is_main_query() || is_admin() ) {
+		return;
+	}
 
 	// Don't muck with these categories specifically
+	// Also remove the largo thing that mucks with them
 	if (
 		$query->is_category( '26' ) || // powering progress
 		$query->is_category( '25' ) || // energy matters
 		$query->is_category( 'news' ) // news
 	) {
+		remove_action( 'pre_get_posts', 'largo_category_archive_posts', 15 );
 		return;
 	}
 
 	// If this has been disabled by an option, do nothing
-	if ( of_get_option( 'hide_category_featured' ) == true ) return;
+	// @see fe_do_hide_category_featured
+	if ( of_get_option( 'hide_category_featured' ) == true ) {
+		return;
+	}
 
 	// get the featured posts
 	$featured_posts = fe_get_featured_posts_in_category( $query->get( 'cat' ) );
