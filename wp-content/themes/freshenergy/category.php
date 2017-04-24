@@ -29,13 +29,14 @@ $queried_object = get_queried_object();
 		</div>
 		<div class="archive-description"><?php echo $description; ?></div>
 		<?php do_action( 'largo_category_after_description_in_header' ); ?>
-		<!--<?php get_template_part( 'partials/archive', 'category-related' ); ?>-->
+		<?php //get_template_part( 'partials/archive', 'category-related' ); ?>
 	</header>
 
 	<section class="container">
 
 	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
-		$featured_posts = largo_get_featured_posts_in_category( $wp_query->query_vars['category_name'] );
+		$args = array_merge( array( 'cat' => get_queried_object_id() ), array( 'cat' => '-9' ) );
+		$featured_posts = fe_get_featured_posts_in_category( get_queried_object_id() );
 
 		if ( count( $featured_posts ) > 0 ) {
 			$secondary_featured = $featured_posts;
@@ -51,11 +52,11 @@ $queried_object = get_queried_object();
 								);
 						} ?>
 					</div>
-					<a href=""><button>More News</button></a>
+					<a href="/category/news/"><button>More News</button></a>
 				</div>
-		<?php }
-	}
-} ?>
+			<?php }
+		}
+	} ?>
 	</section>
 </div>
 
@@ -64,34 +65,60 @@ $queried_object = get_queried_object();
 		<h3 class=""><span>Program Staff</span></h3>
 		<div class="menu-staff-container">
 			<ul id="menu-staff" class="menu">
-				<li id="menu-item-18442" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18442"><a href="#"><span>Matt Privratsky</span></a></li>
-				<li id="menu-item-18443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18443"><a href="#"><span>Ben Rabe</span></a></li>
-				<li id="menu-item-18444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18444"><a href="#"><span>Natalie Robinson</span></a></li>
-				<li id="menu-item-18445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18445"><a href="#"><span>Dylan Sievers</span></a></li>
-				<li id="menu-item-18446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18446"><a href="#"><span>Alexis Williams</span></a></li>
+				<?php
+					$currentid = get_queried_object_id();
+					$args = array( 
+						'category__and' => array( $currentid, 1089 ),  // 1089 is the Staff category
+						'post_type' => 'page'
+					);
+					query_posts( $args );
+
+					while ( have_posts() ) : the_post();
+						echo '<li style="background-image:url(';
+						the_post_thumbnail_url( 'large' );
+						echo ')"><a href="' . get_permalink() . '"><span>' . get_the_title() . '</span></a></li>';
+					endwhile;
+				?>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<div id="fe-reports">
-	<div class="widget widget-1 odd default span12">
-		<h3 class=""><span>Publications</span></h3>
-		<div class="row-fluid">
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 1</a></h4>
-			</div>
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 2</a></h4>
-			</div>
-			<div class="span4">
-				<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/report-placeholder.png" /></a>
-				<h4><a>Publication 3</a></h4>
+
+
+
+<?php
+	$currentid = get_queried_object_id();
+	$args = array( 
+		'category__and' => array( $currentid, 9, 1114 ),  // 9 is the publications category, 1114 is featured publication
+		'post_type' => 'post',
+		'posts_per_page' => 3
+	);
+	query_posts( $args );
+	if ( have_posts() ) { ?>
+
+		<div id="fe-reports">
+			<div class="widget widget-1 odd default span12">
+				<h3 class=""><span>Publications</span></h3>
+				<div class="row-fluid">
+
+					<?php while ( have_posts() ) : the_post();
+						echo '<div class="span4"><a href="' . get_permalink() . '">';
+						//echo '<img src="';
+						// echo get_stylesheet_directory_uri();
+						// echo '/images/report-placeholder.png"';
+						//echo '/>';
+						the_post_thumbnail('medium');
+						echo '</a><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4></div>';
+					endwhile; ?>
+
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
+
+	<?php } ?>
+
+<?php wp_reset_query();?>
+		
 
 <?php get_footer();

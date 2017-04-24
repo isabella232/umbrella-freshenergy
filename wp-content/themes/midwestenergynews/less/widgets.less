@@ -1,0 +1,292 @@
+/**
+ * Styles for specific widgets in general or in specific contexts.
+ */
+
+/**
+ * General widget styles
+ */
+.widget {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+/*
+ * MWEN custom Link Roundups widget, called "Today's headlines"
+ */
+.seen-roundups-widget,
+.mwen-roundups-widget {
+  box-shadow: 0 0 0 1px @greyXL,0 0 0 3px @white,0 0 0 4px @greyXL;
+  -webkit-box-shadow: 0 0 0 1px @greyXL,0 0 0 3px @white,0 0 0 4px @greyXL;
+  -moz-box-shadow: 0 0 0 1px @greyXL,0 0 0 3px @white,0 0 0 4px @greyXL;
+  padding: 65px 30px 0 30px;
+  margin: 4px 4px 18px 4px;
+  a {
+    color:@black;
+  }
+  .roundup-date {
+    font-size: 17px;
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+    margin-top: -82px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    max-width: 95%;
+    &.widgettitle {
+      color: @blue;
+      font-family: @headline;
+      font-size: 28px;
+    }
+  }
+  h4 {
+    .has-photo-links;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  @media (max-width: 768px) {
+    margin-top: 20px 0;
+    text-align: center;
+  }
+}
+// fix for on archive pages
+#sidebar .seen-roundups-widget,
+#sidebar .mwen-roundups-widget {
+  padding: 65px 30px 0 30px;
+}
+// Fix on singular pages
+.page #sidebar .seen-roundups-widget,
+.post #sidebar .seen-roundups-widget,
+.page #sidebar .mwen-roundups-widget,
+.post #sidebar .mwen-roundups-widget {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/*
+ * Mailchimp Newsletter Signup Widget
+ */
+
+.widget_text,
+.mailchimp-signup-widget {
+  display: block;
+  font-family: @sans;
+  margin: 0 auto 24px;
+  h3.pitch {
+    font-family: @sans;
+    font-size: 24px;
+    margin-top: 3%;
+    margin-bottom: 12px;
+    span {
+      color: @blue;
+    }
+    @media( max-width: 768px ) {
+      font-size: 20px;
+    }
+  }
+  input {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 12px;
+    font-family: @sans;
+  }
+  input[type=email],
+  input[type=text] {
+    border-radius: 0;
+    display: inline;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 100px;
+  }
+  input[type=submit] {
+    background-color: @blue;
+    color: @white;
+    border: 1px solid @blue;
+    padding: 8px 10px;
+    width: 100px;
+    display: block;
+    &:hover{
+      background: @link;
+      .background-animation;
+    }
+  }
+  label {
+    display: inline;
+    font-size: 12px;
+  }
+  ul {
+    display: block;
+    margin: 8px 0 8px;
+  }
+  form ul {
+    padding: 0;
+  }
+  li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    white-space: nowrap;
+  }
+  &.rev {
+    background-color: @blue;
+    border: none;
+    h3.pitch span {
+      color: #fff;
+    }
+    input[type=submit] {
+      background-color: @orange;
+      border-color: @orange;
+    }
+  }
+}
+.mailchimp-signup-widget {
+  // this is only for the mailchump signup widget, and not generic textwidgets.
+  .widgettitle {
+    display: none;
+  }
+}
+.widget_text {
+  .widgettitle {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+  }
+}
+.archive .widget_text,
+.home .widget_text,
+.archive .mailchimp-signup-widget,
+.home .mailchimp-signup-widget {
+  border: 1px solid @greyXL;
+  box-sizing: content-box;
+  padding: 18px 34px;
+  input[type=email] {
+    margin: 0 auto 12px;
+    display: block;
+    padding: 12px;
+  }
+  h3.pitch {
+    text-align: center;
+  }
+  input[type=submit] {
+    margin: 16px auto;
+    padding: 12px 40px;
+    width: auto;
+    font-size: 15px;
+  }
+  input[type=email] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  form ul {
+    text-align: center;
+    margin-bottom: 0;  
+  }
+}
+.archive #sidebar .widget_text,
+.archive #sidebar .mailchimp-signup-widget {
+  padding-right: 24px;
+}
+.single #sidebar .mailchimp-signup-widget,
+.post #sidebar .mailchimp-signup-widget,
+.single #sidebar .widget_text,
+.post #sidebar .widget_text {
+  h3.pitch {
+    color: #fff;
+  }
+}
+.page .entry-content .mailchimp-signup-widget,
+.single .entry-content .mailchimp-signup-widget {
+  overflow: hidden;
+  border: 1px solid @greyXL;
+  padding-left: 5%;
+  padding-right: 5%;
+  // Wraps the input to contrain its width so that there is room for the submit beside it.
+  #mailchimp-input-wrap {
+    margin-right: 100px;
+    width: ~"calc(100% - 102px)"; // gotta escape it, since LESS will try to do the `calc` itself.
+    position: relative
+  }
+  h3.pitch {
+    font-size: 18px;
+  }
+  input[type=text],
+  input[type=email] {
+    box-sizing: border-box;
+  }
+  input[type=text] {
+    width: 29%;
+  }
+  input[type=email] {
+    width: 69%;
+  }
+  input[type=submit] {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  form {
+    position: relative;
+    width: 100%;
+  }
+  &.rev {
+    border-color: @blue;
+  }
+  @media (max-width: 420px) {
+    input[type=submit] {
+      margin-bottom: 3%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .home .row-fluid>[class*=span]:last-child>.widget {
+    padding-left: 24px;
+  }
+}
+
+/**
+ * Recent Saved Links widget
+ */
+body .widget.saved-links {
+  p {
+    font-size: 14px;
+  }
+  div.post-lead {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    width: 100%;
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+  }
+  div.post-lead + div.post-lead {
+    border-top: 1px solid @greyXL;
+  }
+  h3 {
+    text-align: center;
+    font-family: @sans;
+  }
+  h5 {
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  ul li {
+    padding-top: 2em;
+    padding-bottom: 1em;
+    + li {
+      border-top: 1px solid @greyL;
+    }
+  }
+}
+
+// Shim for SE Energy News mailchimp form
+.textwidget #mc-embedded-subscribe-form {
+  label {
+    display: inline-block;
+    margin-left: 0.3em;
+  }
+}

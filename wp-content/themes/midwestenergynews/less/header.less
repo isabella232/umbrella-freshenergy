@@ -1,0 +1,69 @@
+/**
+ * Header
+ *
+ * Navigation and Other Style
+ */
+
+.sticky-nav-container {
+  max-width: 100%;
+}
+.sticky-nav-holder {
+  border-bottom: 1px solid @greyD;
+}
+.site-name {
+  text-transform: uppercase;
+}
+.home .sticky-nav-wrapper,
+.sticky-nav-wrapper {
+  float: left;
+  height: auto;
+  width: 100%;
+}
+.sticky-navbar.navbar {
+  li.home-icon > a:hover {
+    background-color: transparent;
+  }
+  li > a:hover {
+    background-color: darken(@greyD, 5%);
+  }
+  @media (max-width: 768px) {
+    .nav-shelf li a {
+      color: @navbarLinkColor;
+
+      &:hover {
+        color: @stickyNavbarLinkColorHover;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #main {
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #header-extras .donate-link { display: none; }
+}
+
+/*
+ * Colors for some things in the mobile nav's dropdown, because the mobile nav uses a dark-on-light scheme instead of the sticky nav's light-on-dark.
+ */
+@media (max-width: 768px) {
+  .navbar.sticky-navbar li a .caret:before {
+    border-top-color: @greyD;
+  }
+  .navbar.sticky-navbar li a:hover .caret:before {
+    border-top-color: darken(@stickyNavbarLinkColor, 5%);
+  }
+}
+.navbar.sticky-navbar li.dropdown .dropdown-menu li a {
+  color: @greyD;
+}
+
+// center and right-align the search in the main nav
+.navbar-inner #header-search {
+  margin-top: ( @navbarHeight - 28px ) /2;
+  float: right;
+}

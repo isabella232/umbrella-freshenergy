@@ -1,0 +1,599 @@
+/**
+ * Single
+ *
+ * Set up the Article Template including Single Header, Single Content and Single Footer and Below Article
+ * MWEN uses a custom template misleadingly labeled "Two-column": There is one thin left column for the byline, a central column for the content, and the right widget column.
+ *
+ * Applies to post and page templates
+ */
+
+/*
+ * Default widths of span* and margins used throughout the template
+ */
+@defaultSpan3: 23.40425532%;
+@defaultSpan9: 74.4680851%;
+@defaultMarginLeft: 2.12765957%;
+
+.page,
+.single {
+  @media (min-width: 1440px) {
+    body& {
+      // This make sure that the sidebar has the appearance of going all the way to the right side
+      // Prevents a white bar to the right of the sidebar from the background of body
+      background: #ffffff; /* Old browsers */
+      background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 45%, @greyD 50%, @greyD 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #ffffff 0%,#ffffff 45%,@greyD 50%,@greyD 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #ffffff 0%,#ffffff 45%,@greyD 50%,@greyD 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='@greyD',GradientType=1 ); /* IE6-9 */
+
+      #content {
+        background: #fff;
+      }
+    }
+  }
+  #main {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  #page {
+    padding: 0;
+    background-color: @greyD;
+  }
+  #content {
+    position: relative;
+    z-index: 1;
+    background-color: @white;
+    -webkit-box-shadow: 3px 0 3px 0 @greyD;
+    -moz-box-shadow: 3px 0 3px 0 @greyD;
+    box-shadow: 3px 0 2px 3px @greyD
+  }
+  article header {
+    margin: 32px 32px 0;
+    @media (max-width: 768px) {
+      margin: 25px 0;
+    }
+  }
+  .hero {
+    margin-bottom: 1.25em;
+    background-color: #efefef;
+    .wp-caption-text {
+      margin: 3px 0 0 5px;
+    }
+    .wp-media-credit {
+      margin: 3px 5px 0 0;
+    }
+  }
+  .entry-title {
+    font-size: 64px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 0.5em;
+    line-height: 1.1;
+  }
+  #sidebar {
+    margin-top: 1em;
+    background-color: @greyD;
+    color: @white;
+    a {
+      color:lighten(@greyXL, 10%);
+    }
+    .widget-area {
+      padding: 0.5em 2em;
+    }
+    .widgettitle {
+      font-size: 18px;
+      color: @white;
+    }
+    h5 a {
+      font-family: @headline;
+      font-weight: 400;
+    }
+    &.span3 {
+      position: relative;
+      z-index: 0;
+      width: @defaultSpan3 + 2;
+      margin-left: @defaultMarginLeft - 2;
+    }
+    .widget {
+      padding: 0;
+    }
+  }
+  .widget {
+    padding: 0;
+  }
+  .largo-recent-posts {
+    h3 {
+      text-align: center;
+      font-family: @sans;
+    }
+    h5 {
+      font-weight: 400;
+    }
+    ul li {
+      padding-top: 2em;
+      padding-bottom: 1em;
+      + li {
+        border-top: 1px solid @greyL;
+      }
+    }
+  }
+}
+
+.page,
+.single {
+  .entry-content {
+    max-width: 700px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-right: auto;
+    margin-left: 1vw;
+  }
+
+  /*
+   * Adjust margin/padding in the post/page body
+   * on extra-wide viewports.
+   */
+  .row.story-row {
+    margin-left: 34.88px;
+    @media (min-width: 1024px) {
+      @breakPointDelta: 7;
+      .span3 {
+        width: @defaultSpan3 - @breakPointDelta;
+      }
+      .span9 {
+        width: @defaultSpan9 + @breakPointDelta;
+      }
+    }
+    @media (max-width:768px) {
+      margin-left: 0;
+    }
+  }
+}
+
+.entry-content {
+  ul {
+    margin-left: 0;
+    padding-left: 24px;
+    list-style-type: square;
+  }
+  li {
+    font-size: 20px;
+    margin-bottom: 1em;
+  }
+  blockquote p {
+    padding: 1em;
+  }
+  aside {
+    padding-right: 0;
+  }
+}
+
+
+/*
+ * Apply Fancy Links to Posts only
+ * Insulate linked images from the wrath of the Fancy Links
+ * Set Align Right Margin
+ * Set Align Left Margin
+ */
+.single .entry-content {
+  div[itemprop="articleBody"] {
+    .fancy-links;
+  }
+  .span9 {
+    a img {
+      border: 0;
+      box-shadow: 0;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .align-right,
+  .right {
+    margin: 0.25vw 1vw 0.25vw 2.5vw;
+  }
+  .align-left,
+  .left {
+    margin: 0.25vw 2.5vw 1vw -7.5vw;
+  }
+  .alignright {
+    margin: 1vw;
+  }
+}
+
+
+/*
+ * Update page link styles
+ */
+.page .entry-content {
+  a {
+    color: @black;
+    text-decoration: underline;
+    &:hover {
+      color: @blue;
+    }
+  }
+}
+
+
+/*
+ * byline
+ */
+h5.byline {
+  font-family: @sans;
+  color: @greyL;
+  a,
+  .author {
+    font-weight: 400;
+    color: @black;
+  }
+}
+.single,
+.page {
+  .by {
+    display: block;
+    margin-bottom: 0.75em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .entry-date {
+    display: block;
+    clear: both;
+    margin-bottom: 1.5em;
+  }
+}
+
+
+/*
+ * Top term
+ */
+
+article header h5.top-tag {
+  margin-bottom: 10px;
+}
+
+/*
+ * Social Media Soup
+ */
+.share-text {
+  font-family: @sans;
+  font-weight: 700;
+  color: @greyXL;
+  font-size: 14.64px;
+}
+
+.span3 .post-social {
+  border-top: 0;
+  border-bottom: 0;
+  .left {
+    width: 100%;
+    display: block;
+  }
+  .right {
+    float: left;
+    margin-top: 5px;
+  }
+  span.email,
+  span.print {
+    margin-left: 0;
+    display: block;
+  }
+  .span.facebook {
+    top: 0;
+  }
+  .custom-share-button {
+    padding: .3em;
+    width: 20px;
+    height: 20px;
+    margin-top: 0.25em;
+    margin-right: 0.5em;
+    color: @white;
+    border-radius: 50%;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    background-color: @greyXL;
+    overflow: visible;
+    display: inline-block;
+    .background-animation;
+    &:before {
+      font-size: 12.5px;
+      line-height: 12.5px;
+      margin-left: 3px;
+      margin-top: 3px;
+      text-align: center;
+    }
+  }
+  .icon-facebook:hover {
+    background-color: #3a5795;
+  }
+  .icon-twitter:hover {
+    background-color: #55acee;
+  }
+  .icon-gplus:hover {
+    background-color: #dd4b39;
+  }
+  .icon-mail:hover,
+  .icon-print:hover {
+    background-color: @greyL;
+  }
+}
+
+/* Related Posts (left sidebar and article bottom)
+----------------------------- */
+.widget.largo-related-posts {
+  .widgettitle {
+    text-align: left;
+    color: @blue;
+    font-family: @sans;
+  }
+  ul h4 {
+    font-weight: 400;
+    line-height: 1;
+    margin-right:2em;
+    a {
+      color:@greyM;
+    }
+  }
+}
+
+.story-row .span3 {
+  .widget.largo-related-posts {
+    margin-top: 5em;
+    display: block;
+    h3.widgettitle {
+      font-family: @sans;
+      font-size: 1.5vw;
+    }
+    ul p,
+    .byline {
+      display: none;
+    }
+  }
+  .wp-post-image {
+    width: 70%;
+    height: 70%;
+    margin-bottom: 0.5em;
+  }
+}
+
+div.article-bottom {
+  margin-top: 30px;
+  .widget.largo-related-posts {
+    .byline {
+      display: none;
+    }
+    h3.widgettitle {
+      margin-left: 0;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    ul {
+      padding-left: 0;
+    }
+    h4 {
+      .headline-links;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.42;
+    }
+    .wp-post-image {
+      margin: 5px 20px 20px 0;
+    }
+  }
+  .widget.largo-tag-list {
+    h5 {
+      font-family: @sans;
+      color: @blue;
+      display: block;
+      text-align: center;
+    }
+    ul {
+      margin: 1.33em auto;
+      padding: 0;
+      display: block;
+      width: 100%;
+      text-align:center;
+      line-height: 1.5;
+      li {
+        white-space: nowrap;
+        &::after {
+          color:@greyXL;
+        }
+      }
+    }
+  }
+}
+
+#comments {
+  .archive-links;
+}
+
+body.single .widget.saved-links,
+body.page .widget.saved-links {
+  div.post-lead + div.post-lead {
+    border-top: 1px solid @greyL;
+  }
+}
+
+
+/* Custom Block quotes
+----------------------------- */
+blockquote,
+.pull-quote,
+.type-pull-quote {
+  background-color:inherit;
+  border-left: none;
+  font-family: @headline;
+  font-weight: 700;
+  &:after {
+    content: "";
+    width: 150px;
+    margin: 2vw auto 1vw;
+    max-width: 700px;
+    height: 0.5vw;
+    background: @black;
+    display: block;
+  }
+}
+blockquote p,
+.pull-quote,
+.type-pull-quote {
+  font-size: 2.5vw;
+  line-height: 1.2;
+  text-align: center;
+  color: darken(@greyD, 10%);
+  font-family: @headline;
+  font-style: normal;
+}
+
+aside.align-left.pull-quote,
+aside.align-left.type-pull-quote {
+  margin-left: -8em;
+}
+
+
+/*
+ * Sticky Footer for Posts
+ */
+.sticky-footer-holder,
+.sticky-footer-holder h4 {
+    font-family: @sans;
+}
+.sticky-footer-holder h4,
+.sticky-footer-holder a:hover,
+.sticky-footer-holder .icon-mail:hover {
+    color: @blue;
+}
+
+
+/*
+ * MEDIA QUERY: Tablet, Mobile
+ */
+@media (max-width: 768px) {
+  .page,
+  .single {
+    #page {
+      background-color: @white;
+    }
+    .entry-title {
+      font-size: 54px;
+      line-height: 1.2;
+    }
+    #sidebar,
+    .share-text,
+    .by {
+      display: none;
+    }
+    #main #content {
+      box-shadow: 0 0 0 0;
+    }
+    .author:after {
+      content: " | ";
+    }
+    .mwen-article .align-left {
+      margin: 0.25vw;
+    }
+    .byline {
+      display: block;
+      float: left;
+    }
+    .entry-date {
+      display: inline;
+    }
+    .post-social {
+      clear: none;
+      float: right;
+      border: none;
+      margin-top: -14px;
+    }
+    /* center block quotes on mobile, fix tucking */
+    .entry-content .align-right, 
+    .entry-content .right,
+    .entry-content .align-left,
+    .entry-content .left {
+      margin: 0;
+      padding: 0;
+    }
+    blockquote p,
+    .pull-quote,
+    .type-pull-quote {
+      font-size: 6.25vw;
+    }
+    blockquote:after,
+    aside.pull-quote:after,
+    aside.type-pull-quote:after {
+      margin-bottom: 1.5em;
+    }
+    .entry-content blockquote p {
+      padding: 1em;
+    }
+  }
+}
+
+/*
+ * MEDIA QUERY: Tablet
+ */
+@media (min-width: 480px) and (max-width: 768px) {
+  .page,
+  .single {
+    #page {
+      padding-right: 18px;
+      padding-left: 18px;
+    }
+    article header {
+      margin: 38px 0;
+    }
+    .entry-content {
+      padding-left: 0;
+    }
+  }
+  .story-row {
+    margin-left: 0;
+    .span3,
+    .span9 {
+      width: 100%;
+    }
+  }
+}
+
+
+/*
+ * MEDIA QUERY: Mobile
+ */
+@media (max-width: 480px) {
+  .page,
+  .single {
+    #page {
+      padding-right: 18px;
+      padding-left: 18px;
+      background-color: @white;
+    }
+    .entry-title {
+      font-size: 42px;
+    }
+    .article header {
+      margin: 38px 0 14px;
+    }
+    .entry-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .mwen-article a {
+    border-bottom:2px solid @storylink;
+    box-shadow:inset 0 -4px 0 @storylink;
+  }
+  .story-row .span3,
+  .story-row .span9 {
+    width:100%;
+  }
+  .story-row,
+  .story-row .entry-content {
+    margin-left: 0;
+  }
+}
