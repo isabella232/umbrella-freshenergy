@@ -21,6 +21,12 @@ class FreshEnergyHome extends Homepage {
 			),
 			'prominenceTerms' => array(
 				// Largo creates Homepage Featured by default, it seems.
+				// but we need a Homepage Secondary Featured
+				array(
+					'name' => __( 'Homepage Secondary Featured', 'fe' ),
+					'description' => __( 'The second homepage featured post: this displays on the right.', 'fe' ),
+					'slug' => 'homepage-secondary-featured'
+				)
 			)
 		);
 		$options = array_merge( $defaults, $options );
@@ -28,7 +34,7 @@ class FreshEnergyHome extends Homepage {
 	}
 
 	/**
-	 * Get the posts for the homepage top row
+	 * Get the homepage top story
 	 *
 	 * This copies fairly heavily from Largo's largo_home_featured_stories
 	 * This is a separate implementation because we're not going to use the Top Story taxonomy term
@@ -52,8 +58,49 @@ class FreshEnergyHome extends Homepage {
 			'posts_per_page' => $max,
 		));
 
-		if ( count( $featured ) < 4 ) {
-			$min = 4 - count( $featured );
+		if ( count( $featured ) < $max ) {
+			$min = $max - count( $featured );
+
+			$additional = get_posts( array(
+				'orderby' => 'date',
+				'order' => 'DESC',
+				'posts_per_page' => $min,
+				'post__not_in' => array_map( function( $o ) { return $o->ID; }, $featured )
+			) );
+
+			$featured = array_merge( $featured, $additional );
+		}
+
+		return $featured;
+	}
+
+	/**
+	 * Get the posts for the homepage secondary featured story
+	 *
+	 * This copies fairly heavily from Largo's largo_home_featured_stories
+	 * This is a separate implementation because we're not going to use the Top Story taxonomy term
+     *
+	 * @link https://github.com/INN/Largo/blob/09367b17e4d49578dbcc22d9c0829d3668a1e3f5/homepages/homepage.php#L152-L171
+	 * @see largo_home_featured_stories
+	 * @see FreshEnergyHome::topStoriesAlt
+	 */
+	function get_topStoriesSecondary( $max = 4 ) {
+		$homepage_feature_term = get_term_by( 'name', __('Homepage Secondary Featured', 'largo'), 'prominence' );
+
+		// Get the homepage featured posts
+		$featured = get_posts(array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'prominence',
+					'field' => 'term_id',
+					'terms' => $homepage_feature_term->term_id
+				)
+			),
+			'posts_per_page' => $max,
+		));
+
+		if ( count( $featured ) < $max ) {
+			$min = $max - count( $featured );
 
 			$additional = get_posts( array(
 				'orderby' => 'date',
@@ -96,29 +143,28 @@ class FreshEnergyHome extends Homepage {
 	 * Output the markup for the homepage top stories
 	 */
 	function topStoriesAlt() {
-		$posts = $this->get_topStories();
+		$top = $this->get_topStories(1);
 
 		global $post;
 
 		ob_start();
 
 		echo '<div id="top-stories-container"><div class="inner">';
-		$i = 0;
 
-		foreach ( $posts as $post ) {
-			$i++;
+		foreach ( $top as $post ) {
 			setup_postdata( $post );
 
-			if ($i == 1) {
-				echo '<div class="span8">';
-				get_template_part( 'partials/home-topstoryalt-main' );
-				echo '</div>';
-			} else {
-				echo '<div class="span4">';
-				get_template_part( 'partials/home-topstoryalt' );
-				echo '</div>';
-			}
-			
+			echo '<div class="span8">';
+			get_template_part( 'partials/home-topstoryalt-main' );
+			echo '</div>';
+		}
+
+		$secondary = $this->get_topStoriesSecondary(1);
+
+		foreach ( $secondary as $post ) {
+			echo '<div class="span4">';
+			get_template_part( 'partials/home-topstoryalt' );
+			echo '</div>';
 		}
 
 		echo '</div></div>';
