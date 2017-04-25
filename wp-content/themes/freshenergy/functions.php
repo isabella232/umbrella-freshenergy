@@ -185,3 +185,19 @@ function fe_category_archive_posts( $query ) {
 	$query->set('cat','-1089'); // Exclude Staff category
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts' );
+
+/**
+ * Make thumbnails actual thumbnails, not featured for featured content
+ *
+ * @since Largo 0.5.5.3
+ * @filter largo_content_partial_arguments
+ * @param Array $args arguments for Largo's partials/content.php
+ * @see largo/partials/content.php
+ */
+function fe_disable_featured_image_presentation_on_archives( $args, $qo = null ) {
+	if ( is_archive() ) {
+		$args['featured'] = false;
+	}
+	return $args;
+}
+add_action( 'largo_content_partial_arguments', 'fe_disable_featured_image_presentation_on_archives', 10, 2 );
