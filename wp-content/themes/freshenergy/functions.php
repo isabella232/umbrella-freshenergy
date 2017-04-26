@@ -37,6 +37,14 @@ function fe_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'fe_styles', 20 );
 
+/**
+ * Change thumbnail image size to rectangles 4 by 6
+ */
+function fe_thumbnail_size() {
+	set_post_thumbnail_size( 210, 140, true ); // thumbnail
+}
+add_action( 'after_setup_theme', 'fe_thumbnail_size', 100 ); // needs to come after Largo's configuration at 10
+
 function fe_js() {
     wp_enqueue_script( 'typekit_js', get_stylesheet_directory_uri() . '/js/typekit.js', array(), '1.0', false );
     wp_enqueue_script( 'fe_js', get_stylesheet_directory_uri() . '/js/fe.js', array( 'jquery' ), '1.0', true );
@@ -185,3 +193,19 @@ function fe_category_archive_posts( $query ) {
 	$query->set('cat','-1089'); // Exclude Staff category
 }
 add_action( 'pre_get_posts', 'fe_category_archive_posts' );
+
+/**
+ * Make thumbnails actual thumbnails, not featured for featured content
+ *
+ * @since Largo 0.5.5.3
+ * @filter largo_content_partial_arguments
+ * @param Array $args arguments for Largo's partials/content.php
+ * @see largo/partials/content.php
+ */
+function fe_disable_featured_image_presentation_on_archives( $args, $qo = null ) {
+	if ( is_archive() ) {
+		$args['featured'] = false;
+	}
+	return $args;
+}
+add_action( 'largo_content_partial_arguments', 'fe_disable_featured_image_presentation_on_archives', 10, 2 );
