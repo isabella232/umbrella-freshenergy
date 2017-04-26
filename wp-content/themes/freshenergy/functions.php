@@ -37,6 +37,14 @@ function fe_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'fe_styles', 20 );
 
+/**
+ * Change thumbnail image size to rectangles 4 by 6
+ */
+function fe_thumbnail_size() {
+	set_post_thumbnail_size( 210, 140, true ); // thumbnail
+}
+add_action( 'after_setup_theme', 'fe_thumbnail_size', 100 ); // needs to come after Largo's configuration at 10
+
 function fe_js() {
     wp_enqueue_script( 'typekit_js', get_stylesheet_directory_uri() . '/js/typekit.js', array(), '1.0', false );
     wp_enqueue_script( 'fe_js', get_stylesheet_directory_uri() . '/js/fe.js', array( 'jquery' ), '1.0', true );
