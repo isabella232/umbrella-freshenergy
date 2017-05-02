@@ -792,12 +792,12 @@ article .has-thumbnail.is-image {
 
 .article-bottom .related li>a {
   display: inline-block;
-  max-height: 70px;
-  overflow: hidden;
+  // max-height: 70px;
+  // overflow: hidden;
   float: right;
 
   img.wp-post-image {
-    float: right;
+    //float: right;
     max-width: 30%;
     margin: 0 0 10px 20px;
     max-width: 140px;
@@ -808,6 +808,17 @@ article .has-thumbnail.is-image {
 /* ARTICLE PAGE */
 body.normal.page, 
 body.normal.single-post {
+
+  .article-bottom {
+    max-width: 1350px;
+    float: none;
+    padding: 3em 2.5%;
+    margin: 0 auto;
+
+    aside {
+      padding:0 17.021276594%
+    }
+  }
 
   article.page>header,
   article.post>header {
@@ -1029,6 +1040,12 @@ body.normal.single-post {
         padding: 0 6.38297872%;
         }
     }
+
+    .article-bottom {
+      aside {
+        padding:0 6.38297872%;
+      }
+    }
   }
 
 }
@@ -1155,6 +1172,12 @@ body.normal.single-post {
         >header {
         padding: 0;
         }
+    }
+
+    .article-bottom {
+      aside {
+        padding:0;
+      }
     }
   }
 
