@@ -20,6 +20,7 @@ function largo_child_require_files() {
 	$includes = array(
 		'/homepages/layouts/freshenergy.php',
 		'/inc/widgets.php',
+		'/inc/images.php',
 	);
 	foreach ( $includes as $include ) {
 		require_once( get_stylesheet_directory() . $include );
@@ -42,6 +43,7 @@ add_action( 'wp_enqueue_scripts', 'fe_styles', 20 );
  */
 function fe_thumbnail_size() {
 	set_post_thumbnail_size( 210, 140, true ); // thumbnail
+	add_image_size( 'thumbnail', 210, 140, true );
 }
 add_action( 'after_setup_theme', 'fe_thumbnail_size', 100 ); // needs to come after Largo's configuration at 10
 
