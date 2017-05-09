@@ -79,12 +79,3 @@ function fe_datepicker_admin_enqueue() {
 	wp_enqueue_script( 'jquery-ui-datepicker' );
 }
 add_action( 'admin_enqueue_scripts', 'fe_datepicker_admin_enqueue' );
-
-// test function
-add_action( 'largo_after_hero', function() {
-	global $post;
-	printf(
-		'<div class="entry-content red">date: %1$s</div>',
-		 get_post_meta( $post->ID, 'events_date_iso', true )
-	);
-} );
