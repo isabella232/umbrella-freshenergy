@@ -47,8 +47,7 @@ function fe_events_date_metabox_display() {
 						}
 					});
 					current_date = $('#events_date_iso').val();
-					console.log( current_date );
-					$picker.datepicker( 'setDate', current_date );
+					$picker.datepicker( 'setDate', Date.parse( current_date ) );
 				});
 			</script>
 			<?php wp_nonce_field( 'events_date_iso', 'events_date_nonce' ); ?>
@@ -60,16 +59,13 @@ function fe_events_date_metabox_display() {
  */
 function fe_events_date_save_fields( $post_id ) {
 	if ( !isset( $_POST['events_date_nonce'] ) || ! wp_verify_nonce( $_POST['events_date_nonce'], 'events_date_iso' ) ) {
-		error_log(var_export( 'foo', true));
 		return;
 	}
 
 	global $post;
 	if ( isset( $_POST['events_date_iso'] ) ) {
 		// needs validatiom
-		error_log(var_export( $_POST['events_date_iso'] , true));
 		$value = preg_replace( '/[^0-9-]+/', "", $_POST['events_date_iso'] );
-		error_log(var_export( update_post_meta( $post->ID, 'events_date_iso', esc_attr( $value ) ), true));
 		return;
 	}
 }
