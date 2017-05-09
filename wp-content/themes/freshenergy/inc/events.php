@@ -41,7 +41,7 @@ function fe_events_date_metabox_display() {
 					$picker.datepicker({
 						altField: '#events_date_iso',
 						altFormat: 'yy-mm-dd', // aka 'ISO_8601'
-						dateFormat: 'COOKIE',
+						dateFormat: 'D, dd M yy',
 						gotoCurrent: true,
 						onSelect: function( dateText, inst ) {
 						}
@@ -69,8 +69,7 @@ function fe_events_date_save_fields( $post_id ) {
 		// needs validatiom
 		error_log(var_export( $_POST['events_date_iso'] , true));
 		$value = preg_replace( '/[^0-9-]+/', "", $_POST['events_date_iso'] );
-		error_log(var_export( $value , true));
-		update_post_meta( $post->ID, 'events_date_iso', esc_attr( $value ) );
+		error_log(var_export( update_post_meta( $post->ID, 'events_date_iso', esc_attr( $value ) ), true));
 		return;
 	}
 }
@@ -87,8 +86,9 @@ add_action( 'admin_enqueue_scripts', 'fe_datepicker_admin_enqueue' );
 
 // test function
 add_action( 'largo_after_hero', function() {
+	global $post;
 	printf(
 		'<div class="entry-content red">date: %1$s</div>',
-		get_post_meta( null, 'event-date', true )
+		 get_post_meta( $post->ID, 'events_date_iso', true )
 	);
 } );
