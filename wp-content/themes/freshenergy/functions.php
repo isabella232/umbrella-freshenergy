@@ -21,6 +21,7 @@ function largo_child_require_files() {
 		'/homepages/layouts/freshenergy.php',
 		'/inc/widgets.php',
 		'/inc/images.php',
+		'/inc/events.php',
 	);
 	foreach ( $includes as $include ) {
 		require_once( get_stylesheet_directory() . $include );
