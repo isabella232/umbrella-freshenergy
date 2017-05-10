@@ -66,6 +66,7 @@ function fe_events_date_save_fields( $post_id ) {
 	if ( isset( $_POST['events_date_iso'] ) ) {
 		// needs validatiom
 		$value = preg_replace( '/[^0-9-]+/', "", $_POST['events_date_iso'] );
+		update_post_meta( $post->ID, 'events_date_iso', esc_attr( $value ) );
 		return;
 	}
 }
