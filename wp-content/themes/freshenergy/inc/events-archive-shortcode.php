@@ -63,31 +63,3 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	return $ret;
 }
 add_shortcode('events_list', 'events_archive_shortcode');
-
-/**
- * given a term object, return the id of the landing page
- * @see taxt_term_archive_shortcode
- */
-function cr_get_cftl_landing_page_for_term( $term ) {
-	$args =  array(
-		'post_type' => 'cftl-tax-landing',
-		'posts_per_page' => 1,
-		'post_status' => 'any',
-		'tax_query' => array(
-			array(
-				'taxonomy' => $term->taxonomy,
-				'terms' => $term->term_id
-			)
-		)
-	);
-	$landing_page_query = new WP_Query( $args );
-
-	$landing_page = $landing_page_query->posts;
-
-	if ( $landing_page ) {
-		return get_post($landing_page[0]);
-	}
-
-	return false;
-
-}
