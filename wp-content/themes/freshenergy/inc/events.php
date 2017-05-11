@@ -43,7 +43,9 @@ function fe_events_date_metabox_display() {
 						altFormat: '@', // aka 'TIMESTAMP', the Unix epoch in milliseconds
 						dateFormat: 'D, dd M yy',
 						gotoCurrent: true,
-						firstDay: 0
+						firstDay: 0,
+						buttonText: '<span class="hidden">Select Event Date</span>📅',
+						showOn: "both",
 					});
 
 					// populate the datepicker from the actual setting field upon load
