@@ -41,7 +41,7 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		'ignore_sticky_posts' => true,
 		#'orderby'             => $options['order'],
 		'order' => 'DESC',
-		'orderby'               => 'meta_value',
+		'orderby'               => 'meta_value_num',
 		'meta_key'            => 'events_date_epoch',
 		#'post__not_in'        => explode(',', $options['exclude'] ),
 		#'post__in'            => explode(',', $options['include'] ),
@@ -67,6 +67,10 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		$counter++;
 	}
 	
+	// I don't know why this is true; it should not be
+	$events->is_home = false;
+	// if it is true, https://github.com/INN/largo/blob/v0.5.5.3/inc/ajax-functions.php#L110-L114 triggers and we repeat a page
+
 	largo_render_template( 'partials/load-more-posts', array(
 		'nav_id'=> 'nav-below',
 		'the_query' => $events,
