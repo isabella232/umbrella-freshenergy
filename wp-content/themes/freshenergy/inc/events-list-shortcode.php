@@ -40,7 +40,8 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		#'paged'               => $paged,
 		'ignore_sticky_posts' => true,
 		#'orderby'             => $options['order'],
-		'order'               => 'meta_value',
+		'order' => 'DESC',
+		'orderby'               => 'meta_value',
 		'meta_key'            => 'events_date_epoch',
 		#'post__not_in'        => explode(',', $options['exclude'] ),
 		#'post__in'            => explode(',', $options['include'] ),
@@ -56,11 +57,11 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	echo '<div class="events-archive stories">';
 	$counter = 1;
 
-	echo $events->post_count;
-
 	while ( $events->have_posts() ) {
 		$events->the_post();
 		$partial = largo_get_partial_by_post_type( 'archive', 'post', 'archive' );
+		global $post;
+		echo get_post_meta( $post->ID, 'events_date_epoch', true );
 		get_template_part( 'partials/content', $partial );
 		do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
 		$counter++;
