@@ -24,28 +24,26 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	 * get_terms is called by get_categories: https://developer.wordpress.org/reference/functions/get_categories/
 	 */
 	$options = shortcode_atts( array(
-		'exclude' => '',
-		'include' => '',
-		'meta_key' => 'events_date_iso',
-		'order' => 'DESC'
-		'orderby' => 'meta_value',
+		'exclude' => null,
+		'include' => null,
+		'order' => 'DESC',
 		'per_page' => get_option('posts_per_page'),
 		'term' => 'Events',
 		'thumb' => 'true',
 		'thumbsize' => 'thumbnail'
-	) );
+	), $atts );
 
 	global $paged, $post;
 
 	$query_opts = array(
-		'posts_per_page'      => $options['per_page'],
-		'paged'               => $paged,
+		#'posts_per_page'      => $options['per_page'],
+		#'paged'               => $paged,
 		'ignore_sticky_posts' => true,
-		'orderby'             => $options['order'],
-		'order'               => $options['orderby'],
-		'meta_key'            => $options['meta_key'],
-		'post__not_in'        => explode(',', $options['exclude'] ),
-		'post__in'            => explode(',', $options['include'] ),
+		#'orderby'             => $options['order'],
+		'order'               => 'meta_value',
+		'meta_key'            => 'events_date_iso',
+		#'post__not_in'        => explode(',', $options['exclude'] ),
+		#'post__in'            => explode(',', $options['include'] ),
 	);
 
 	$events = new WP_Query( $query_opts );
@@ -56,6 +54,18 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	ob_start();
 	
 	echo '<div class="events-archive stories">';
+	$counter = 1;
+
+	echo $events->post_count;
+
+	while ( $events->have_posts() ) {
+		$events->the_post();
+		$partial = largo_get_partial_by_post_type( 'archive', 'post', 'archive' );
+		get_template_part( 'partials/content', $partial );
+		do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
+		$counter++;
+	}
+	largo_content_nav( 'nav-below' );
 	wp_reset_postdata();
 	echo '</div>';
 

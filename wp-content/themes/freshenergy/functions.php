@@ -22,6 +22,7 @@ function largo_child_require_files() {
 		'/inc/widgets.php',
 		'/inc/images.php',
 		'/inc/events.php',
+		'/inc/events-list-shortcode.php',
 	);
 	foreach ( $includes as $include ) {
 		require_once( get_stylesheet_directory() . $include );
