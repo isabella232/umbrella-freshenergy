@@ -81,7 +81,9 @@ add_action( 'save_post', 'fe_events_date_save_fields' );
  * enqueue jQuery UI datepicker
  */
 function fe_datepicker_admin_enqueue() {
-	wp_enqueue_script( 'jquery-ui-core' );
 	wp_enqueue_script( 'jquery-ui-datepicker' );
+	wp_enqueue_style( 'jquery-ui' );
+	$suffix = (LARGO_DEBUG)? '' : '.min';
+	wp_enqueue_style( 'jquery-ui-datepicker', get_stylesheet_directory_uri() . '/css/datepicker' . $suffix . '.css');
 }
 add_action( 'admin_enqueue_scripts', 'fe_datepicker_admin_enqueue' );
