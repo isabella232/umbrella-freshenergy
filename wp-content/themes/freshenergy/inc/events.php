@@ -43,9 +43,10 @@ function fe_events_date_metabox_display() {
 						altFormat: '@', // aka 'TIMESTAMP', the Unix epoch in milliseconds
 						dateFormat: 'D, dd M yy',
 						gotoCurrent: true,
-						onSelect: function( dateText, inst ) {
-						}
+						firstDay: 0
 					});
+
+					// populate the datepicker from the actual setting field upon load
 					proposed_date = $('#events_date_epoch').val();
 					if ( proposed_date ) {
 						actual_date = new Date( Number( proposed_date ) ); // we're feeding this a Unix Epoch date with milliseconds: js-created, js-parsed
