@@ -41,7 +41,7 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		'ignore_sticky_posts' => true,
 		#'orderby'             => $options['order'],
 		'order'               => 'meta_value',
-		'meta_key'            => 'events_date_iso',
+		'meta_key'            => 'events_date_epoch',
 		#'post__not_in'        => explode(',', $options['exclude'] ),
 		#'post__in'            => explode(',', $options['include'] ),
 	);
@@ -65,7 +65,13 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
 		$counter++;
 	}
-	largo_content_nav( 'nav-below' );
+	
+	largo_render_template( 'partials/load-more-posts', array(
+		'nav_id'=> 'nav-below',
+		'the_query' => $events,
+		'posts_term' => 'Events'
+	) );
+
 	wp_reset_postdata();
 	echo '</div>';
 
