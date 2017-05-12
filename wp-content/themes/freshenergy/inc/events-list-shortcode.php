@@ -61,7 +61,6 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		$events->the_post();
 		$partial = largo_get_partial_by_post_type( 'archive', 'post', 'archive' );
 		global $post;
-		echo get_post_meta( $post->ID, 'events_date_epoch', true );
 		get_template_part( 'partials/content', $partial );
 		do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
 		$counter++;
