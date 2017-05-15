@@ -30,22 +30,49 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 		'per_page' => get_option('posts_per_page'),
 		'term' => 'Events',
 		'thumb' => 'true',
-		'thumbsize' => 'thumbnail'
+		'thumbsize' => 'thumbnail',
+		'time' => 'future'
 	), $atts );
 
 	global $paged, $post;
 
 	$query_opts = array(
-		#'posts_per_page'      => $options['per_page'],
-		#'paged'               => $paged,
 		'ignore_sticky_posts' => true,
-		#'orderby'             => $options['order'],
-		'order' => 'DESC',
-		'orderby'               => 'meta_value_num',
 		'meta_key'            => 'events_date_epoch',
-		#'post__not_in'        => explode(',', $options['exclude'] ),
-		#'post__in'            => explode(',', $options['include'] ),
+		'orderby' => 'meta_value_num',
 	);
+
+	// Assemble the current date in milliseconds, since "the date in milliseconds"
+	// is how this is saved in the databse, thanks to JSON. We don't care too much
+	// about precision below a second; we just need those three zeroes at the end.
+	$milliseconds = microtime(true);
+	// round this to nearest hundred seconds,
+	// get string value (without decimal points, see)
+	// and then append three zeros to get it to milliseconds.
+	$milliseconds = strval(round( $milliseconds, -2 )) . '000';
+
+
+	if ( $options['time'] === 'past' ) {
+		// search for posts before today, ordered by decreasing meta_value_num (date)
+		$query_opts['order'] = 'DESC';
+		$query_opts['meta_query'] = array(
+			array(
+				'key' => 'events_date_epoch',
+				'value' => $milliseconds,
+				'compare' => '<=',
+			),
+		);
+	} else {
+		// search for posts after today, ordered by increasing meta_value_num (date)
+		$query_opts['order'] = 'ASC';
+		$query_opts['meta_query'] = array(
+			array(
+				'key' => 'events_date_epoch',
+				'value' => $milliseconds,
+				'compare' => '>=',
+			),
+		);
+	}
 
 	$events = new WP_Query( $query_opts );
 
