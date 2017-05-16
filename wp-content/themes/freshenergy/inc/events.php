@@ -52,8 +52,6 @@ function fe_events_date_metabox_display() {
 					proposed_date = $('#events_date_epoch').val();
 					if ( proposed_date ) {
 						actual_date = new Date( Number( proposed_date ) ); // we're feeding this a Unix Epoch date with milliseconds: js-created, js-parsed
-						console.log( proposed_date );
-						console.log( actual_date );
 						$picker.datepicker( 'setDate', actual_date );
 					}
 				});
