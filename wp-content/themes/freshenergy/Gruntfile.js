@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 
     var CSS_LESS_FILES = {
         'css/child.css': 'less/child.less',
+        'css/datepicker.css': 'less/datepicker.less',
         'homepages/assets/css/homepage.css' : 'homepages/assets/less/homepage.less'
     };
 
