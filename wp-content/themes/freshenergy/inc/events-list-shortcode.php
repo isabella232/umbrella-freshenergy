@@ -84,13 +84,17 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	echo '<div class="events-archive stories">';
 	$counter = 1;
 
-	while ( $events->have_posts() ) {
-		$events->the_post();
-		$partial = largo_get_partial_by_post_type( 'archive', 'post', 'archive' );
-		global $post;
-		get_template_part( 'partials/content', $partial );
-		do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
-		$counter++;
+	if( $events->have_posts() ) {
+		while ( $events->have_posts() ) {
+			$events->the_post();
+			$partial = largo_get_partial_by_post_type( 'archive', 'post', 'archive' );
+			global $post;
+			get_template_part( 'partials/content', $partial );
+			do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
+			$counter++;
+		}
+	} else {
+		echo '<!-- um, there are no future events... --!>';
 	}
 	
 	// I don't know why this is true; it should not be
