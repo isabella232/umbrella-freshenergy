@@ -451,7 +451,8 @@ img.header_img {
  * Category Page
  */
 
-.archive.category {
+.archive.category,
+.page-template-page-feature {
   .hero-title {
     position:relative;
     min-height: 50vh;
@@ -465,6 +466,7 @@ img.header_img {
   .hero {
     margin:0;
     position:relative;
+    min-height:75vh;
     max-height:75vh;
     overflow: hidden;
 
@@ -706,7 +708,8 @@ img.header_img {
 .archive.category.category-energy-performance,
 .archive.category.category-energy-news-network,
 .archive.category.category-global-warming-solutions,
-.archive.category.category-electric-cars-buses {
+.archive.category.category-electric-cars-buses,
+.page-template-page-feature{
   .hero img{
     opacity: 0;
   }
@@ -716,7 +719,7 @@ img.header_img {
 }
 
 .archive.category-energy-matters,
-.archive.category-powering-progress, {
+.archive.category-powering-progress{
   section.container {
     .container-boundaries;
     max-width:900px;
@@ -729,7 +732,7 @@ img.header_img {
 
 .archive.category-programs,
 .archive.category-news,
-.archive.category-publications {
+.archive.category-publications{
 
   .entry-content.with-hero {
     position: relative;
@@ -875,6 +878,18 @@ body.normal.single-post {
   }
 }
 
+.page-template-page-feature {
+  header#site-header {
+    border-bottom:none;
+  }
+  article {
+    h1.entry-title,
+    .hero {
+      display:none;
+    }
+  }
+}
+
 .category-better-buildings,
 .category-renewable-electricity,
 .category-energy-performance,
@@ -1007,7 +1022,8 @@ body.normal.single-post {
   }
 
   /* Category Page */
-  .archive.category {
+  .archive.category,
+  .page-template-page-feature {
     .hero-title {
       position:relative;    
         min-height: 40vh;
@@ -1078,17 +1094,20 @@ body.normal.single-post {
     }
   }
   /* Category Page */
-  .archive.category {
+  .archive.category,
+  .page-template-page-feature {
     .hero-title {
       position:relative;    
         min-height: 35vh;
     }
     .hero {
         max-height:35vh;
+        min-height: 35vh;
         overflow: hidden;
 
       .background-container {
-          max-height:35vh;
+        max-height:35vh;
+        min-height: 35vh;
       }
     }
     .archive-background {
@@ -1146,7 +1165,8 @@ body.normal.single-post {
   .category-news,
   .category-publications,
   .search-results,
-  .error404 {
+  .error404,
+  .page-template-page-feature {
     #main {
       margin:0 auto 2em;
     }
@@ -1190,7 +1210,8 @@ body.normal.single-post {
       }
   }
   /* Category Page */
-  .archive.category {
+  .archive.category,
+  .page-template-page-feature {
     .hero-title {
       position:relative;
         min-height: 25vh;
