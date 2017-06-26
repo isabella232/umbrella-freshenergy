@@ -49,10 +49,13 @@ function events_archive_shortcode( $atts, $context, $tag ) {
 	// round this to nearest hundred seconds,
 	// get string value (without decimal points, see)
 	// and then append three zeros to get it to milliseconds.
-	$milliseconds = strval(round( $milliseconds, -2 )) . '000';
+	// $milliseconds = strval(round( $milliseconds, -2 )) . '000'; 
+	// this calc doesn't account for events happening today
+	// so need to subtract 1 day from today's microtime
+	$milliseconds = strval(round( ($milliseconds - 86400), -2 )) . '000'; // 86400 = 60s*60m*24h = 1d
 
 
-	if ( $options['time'] === 'past' ) {
+	if ( $options['time'] === 'past' ) {		
 		// search for posts before today, ordered by decreasing meta_value_num (date)
 		$query_opts['order'] = 'DESC';
 		$query_opts['meta_query'] = array(
