@@ -89,29 +89,31 @@ $queried_object = get_queried_object();
 
 <?php
 	$currentid = get_queried_object_id();
-	$args = array( 
-		'category__and' => array( $currentid, 9, 1114 ),  // 9 is the publications category, 1114 is featured publication
-		'post_type' => 'post',
-		'posts_per_page' => 3
-	);
-	query_posts( $args );
+	$currentslug = get_queried_object()->slug;
 	if ( have_posts() ) { ?>
 
 		<div id="fe-reports">
 			<div class="widget widget-1 odd default span12">
 				<h3 class=""><span>Publications</span></h3>
 				<div class="row-fluid">
+					<?php 
+						function get_id_by_slug($page_slug) {
+						    $page = get_page_by_path($page_slug);
+						    if ($page) {
+						        return $page->ID;
+						    } else {
+						        return null;
+						    }
+						} 
+						$pageid = get_id_by_slug( $currentslug . '-publications' );
 
-					<?php while ( have_posts() ) : the_post();
-						echo '<div class="span4"><a href="' . get_permalink() . '">';
-						//echo '<img src="';
-						// echo get_stylesheet_directory_uri();
-						// echo '/images/report-placeholder.png"';
-						//echo '/>';
-						the_post_thumbnail('medium');
-						echo '</a><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4></div>';
-					endwhile; ?>
-
+						if ( $pageid )
+						{
+						    //echo $currentslug;
+						    //echo $pageid;
+						    echo do_shortcode(get_post_field('post_content', $pageid));
+						}
+					?>
 				</div>
 			</div>
 		</div>
