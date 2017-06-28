@@ -92,31 +92,34 @@ $queried_object = get_queried_object();
 	$currentslug = get_queried_object()->slug;
 	if ( have_posts() ) { ?>
 
-		<div id="fe-reports">
-			<div class="widget widget-1 odd default span12">
-				<h3 class=""><span>Publications</span></h3>
-				<div class="row-fluid">
-					<?php 
-						function get_id_by_slug($page_slug) {
-						    $page = get_page_by_path($page_slug);
-						    if ($page) {
-						        return $page->ID;
-						    } else {
-						        return null;
-						    }
-						} 
-						$pageid = get_id_by_slug( $currentslug . '-publications' );
+		<?php 
+			function get_id_by_slug($page_slug) {
+			    $page = get_page_by_path($page_slug);
+			    if ($page) {
+			        return $page->ID;
+			    } else {
+			        return null;
+			    }
+			} 
+			$pageid = get_id_by_slug( $currentslug . '-publications' );
 
-						if ( $pageid )
-						{
-						    //echo $currentslug;
-						    //echo $pageid;
-						    echo do_shortcode(get_post_field('post_content', $pageid));
-						}
-					?>
+			if ( $pageid )
+			{ ?>
+
+				<div id="fe-reports">
+					<div class="widget widget-1 odd default span12">
+						<h3 class=""><span>Publications</span></h3>
+						<div class="row-fluid">
+							<?php 
+							    //echo $currentslug;
+							    //echo $pageid;
+							    echo do_shortcode(get_post_field('post_content', $pageid));
+							?>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+
+			<?php } ?>
 
 	<?php } ?>
 
