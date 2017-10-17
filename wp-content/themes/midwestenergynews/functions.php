@@ -152,7 +152,7 @@ function mwen_top_term() {
 	$post_type = get_post_type();
 	if ( $post_type === 'roundup' ) {
 		$categories = get_the_terms( $post->ID, 'category' );
-		echo '<h5 class="top-tag"><a href="' . get_category_link( $categories[0]->term_id ) . '">' . $categories[0]->name . '</a></h5>';		
+		echo '<h5 class="top-tag"><a href="' . get_category_link( $categories[0]->term_id ) . '">' . $categories[0]->name . '</a></h5>';
 	} else {
 		echo '<h5 class="top-tag">';
 		largo_top_term(); // The defaults are sane
@@ -235,3 +235,11 @@ function mwen_theme_options($options) {
 	return $options;
 }
 add_filter('largo_options', 'mwen_theme_options');
+
+function mwen_comments_roundups( $value ) {
+    if ( ! in_array( 'roundup', $value ) {
+        array_push( $value, 'roundup' );
+    }
+    return $value;
+}
+add_filter( 'close_comments_for_post_types', 'mwen_comments_roundups' );
