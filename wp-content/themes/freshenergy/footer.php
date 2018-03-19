@@ -45,13 +45,13 @@
 						<table border=0 width=520 cellpadding=5 cellspacing=0>
 							<tbody>
 								<tr id="snippet_null1"> <td colspan=2 class=control_head>
-								<h1>Sign Up for News and Updates</h1>
 							</td>
 						</tr>
 						<tr id="snippet_person.firstName1">
 							<td width=150 class=leftLabel>
-								<label>First Name</label>
+								<label>First Name
 								<SPAN class=required>*</SPAN>
+								</label>
 							</td>
 							<td class=rightField>
 								<input type="text" name="person.firstName" maxlength="100" size="20" value="" id="snippet_person.firstName" class="control_textbox">
@@ -59,8 +59,9 @@
 						</tr>
 						<tr id="snippet_person.lastName1">
 							<td width=150 class=leftLabel>
-								<label>Last Name</label>
+								<label>Last Name
 								<SPAN class=required>*</SPAN>
+								</label>
 							</td>
 							<td class=rightField>
 								<input type="text" name="person.lastName" maxlength="100" size="20" value="" id="snippet_person.lastName" class="control_textbox">
@@ -68,8 +69,9 @@
 						</tr>
 						<tr id="snippet_person.email11">
 							<td width=150 class=leftLabel>
-								<label>Email</label>
+								<label>Email
 								<SPAN class=required>*</SPAN>
+								</label>
 							</td>
 							<td class=rightField>
 								<input type="text" name="person.email1" maxlength="100" size="20" value="" id="snippet_person.email1" class="control_textbox">
