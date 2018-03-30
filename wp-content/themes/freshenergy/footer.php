@@ -49,36 +49,36 @@
 						</tr>
 						<tr id="snippet_person.firstName1">
 							<td width=150 class=leftLabel>
-								<label>First Name
+								<!-- <label>First Name
 								<SPAN class=required>*</SPAN>
-								</label>
+								</label> -->
 							</td>
 							<td class=rightField>
-								<input type="text" name="person.firstName" maxlength="100" size="20" value="" id="snippet_person.firstName" class="control_textbox">
+								<input type="text" name="person.firstName" maxlength="100" size="20" value="" id="snippet_person.firstName" class="control_textbox" placeholder="First Name">
 							</td>
 						</tr>
 						<tr id="snippet_person.lastName1">
 							<td width=150 class=leftLabel>
-								<label>Last Name
+								<!-- <label>Last Name
 								<SPAN class=required>*</SPAN>
-								</label>
+								</label> -->
 							</td>
 							<td class=rightField>
-								<input type="text" name="person.lastName" maxlength="100" size="20" value="" id="snippet_person.lastName" class="control_textbox">
+								<input type="text" name="person.lastName" maxlength="100" size="20" value="" id="snippet_person.lastName" class="control_textbox" placeholder="Last Name">
 							</td>
 						</tr>
 						<tr id="snippet_person.email11">
 							<td width=150 class=leftLabel>
-								<label>Email
+								<!-- <label>Email
 								<SPAN class=required>*</SPAN>
-								</label>
+								</label> -->
 							</td>
 							<td class=rightField>
-								<input type="text" name="person.email1" maxlength="100" size="20" value="" id="snippet_person.email1" class="control_textbox">
+								<input type="text" name="person.email1" maxlength="100" size="20" value="" id="snippet_person.email1" class="control_textbox" placeholder="Email">
 							</td>
 						</tr>
 						<tr id="snippet_survey.data.73.value1">
-							<td width=150 class=leftLabel> <label>ReCAPTCHA</label>
+							<td width=150 class=leftLabel> <!-- <label>ReCAPTCHA</label> -->
 							</td>
 							<td class=rightField>
 								<script src='https://www.google.com/recaptcha/api.js'>
