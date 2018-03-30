@@ -65,6 +65,12 @@ table, table tr, table td {
   border: none;
 }
 
+@media ( max-width:475px ) {
+  table, table tr, table td {
+    display: table-row;
+  }
+}
+
 .global-nav-bg {
   position: absolute;
   width: 100%;
@@ -268,6 +274,9 @@ img.header_img {
     bottom:0;
     margin-bottom:0;
     min-height:520px;
+    height: -moz-available;          
+    height: -webkit-fill-available;  
+    height: fill-available;
 
     button,
     input[type=text],
