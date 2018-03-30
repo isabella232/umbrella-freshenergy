@@ -78,7 +78,7 @@
 							</td>
 						</tr>
 						<tr id="snippet_survey.data.73.value1">
-							<td width=150 class=leftLabel> <label>ReCAPTCHA</label>
+							<td width=150 class=leftLabel> <!-- <label>ReCAPTCHA</label> -->
 							</td>
 							<td class=rightField>
 								<script src='https://www.google.com/recaptcha/api.js'>
