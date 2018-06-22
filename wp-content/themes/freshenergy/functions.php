@@ -78,6 +78,17 @@ $my_post_array = array('post','page');
 
 
 /**
+ * oembed is a pain; this fixes fixed widths for responsive output
+ *
+ * Wraps embeds in a container div.
+ */
+function mwe_responsive_embed($html, $url, $attr, $post_ID) {
+	$return = '<div class="video-container">'.$html.'</div>'; return $return;
+}
+add_filter( 'embed_oembed_html', 'mwe_responsive_embed', 10, 4 );
+
+
+/**
  * Get posts marked as "Featured in category" for a given category name.
  *
  * @param string $category_name the category to retrieve featured posts for.
