@@ -47,19 +47,19 @@
 								<tr id="snippet_person.firstName1">
 									<td class=rightField>
 										<label class="visuallyhidden" for="person.firstName">First Name</label>
-										<input type="text" name="person.firstName" maxlength="100" size="20" value="" id="snippet_person.firstName" class="control_textbox" required>
+										<input type="text" name="person.firstName" maxlength="100" size="20" value="" id="snippet_person.firstName" class="control_textbox" required placeholder="First Name">
 									</td>
 								</tr>
 								<tr id="snippet_person.lastName1">
 									<td class=rightField>
 										<label class="visuallyhidden" for="person.lastName">Last Name</label>
-										<input type="text" name="person.lastName" maxlength="100" size="20" value="" id="snippet_person.lastName" class="control_textbox" required>
+										<input type="text" name="person.lastName" maxlength="100" size="20" value="" id="snippet_person.lastName" class="control_textbox" required placeholder="Last Name">
 									</td>
 								</tr>
 								<tr id="snippet_person.email11">
 									<td class=rightField>
 										<label class="visuallyhidden" for="person.email1">Email</label>
-										<input type="text" name="person.email1" maxlength="100" size="20" value="" id="snippet_person.email1" class="control_textbox" required>
+										<input type="text" name="person.email1" maxlength="100" size="20" value="" id="snippet_person.email1" class="control_textbox" required placeholder="Email">
 									</td>
 								</tr>
 								<tr id="snippet_survey.data.73.value1">
