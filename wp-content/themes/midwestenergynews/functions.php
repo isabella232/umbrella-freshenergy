@@ -237,7 +237,7 @@ function mwen_theme_options($options) {
 add_filter('largo_options', 'mwen_theme_options');
 
 function mwen_comments_roundups( $value ) {
-    if ( ! in_array( 'roundup', $value ) {
+    if ( ! in_array( 'roundup', $value ) ) {
         array_push( $value, 'roundup' );
     }
     return $value;
