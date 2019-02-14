@@ -20,8 +20,13 @@
 
 				<?php
 					$id=19314; // "Donate Blurb"
-					$post = get_post($id);
-					$content = apply_filters('the_content', $post->post_content);
+
+					// reimplement https://developer.wordpress.org/reference/functions/the_content/
+					$temporary_post = get_post($id);
+					$content = $temporary_post->post_content;
+					$content = apply_filters('the_content', $content);
+					$content = apply_filters('the_content', $content);
+					$content = str_replace(']]>', ']]&gt;', $content);
 					echo $content;
 				?>
 			</div>
