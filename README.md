@@ -1,8 +1,6 @@
 ## Setup instructions
 
-This repository is designed to be set up in accordance with the VVV install instructions in INN/docs, that were introduced with https://github.com/INN/docs/pull/148
-
-
+This repository is designed to be set up in accordance with INN's site setup instructions in https://github.com/INN/docs/blob/master/projects/largo/umbrella-setup.md, and deployed via [WP Engine Git push](https://github.com/INN/docs/blob/master/how-we-work/dev-processes/setup-wpengine-gitpush.md)
 ```
 vv create
 ```
@@ -49,7 +47,7 @@ This is a series of notes of what had to be done to get the db working.
 	- Activate the Fresh Energy theme that's a Largo child
 	- In Settings > Reading, change "Front page displays" to "Your latest posts"
 
-## Theme setup notes
+## Theme setup notes for freshenergy
 
 Widgets:
 
