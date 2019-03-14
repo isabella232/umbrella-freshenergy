@@ -17,7 +17,12 @@ class FreshEnergyHome extends Homepage {
 			'description' => __( 'Four stories in a grid at the top, then plenty of widget areas', 'fe' ),
 			'template' => get_stylesheet_directory() . '/homepages/templates/fe-homepage.php',
 			'assets' => array(
-				array( 'homepage-single', get_stylesheet_directory_uri() . '/homepages/assets/css/homepage'. $suffix . '.css', array() ),
+				array(
+					'homepage-single',
+					get_stylesheet_directory_uri() . '/homepages/assets/css/homepage'. $suffix . '.css',
+					array(),
+					filemtime( get_stylesheet_directory() . '/homepages/assets/css/homepage' . $suffix . '.css' )
+				),
 			),
 			'prominenceTerms' => array(
 				// Largo creates Homepage Featured by default, it seems.
