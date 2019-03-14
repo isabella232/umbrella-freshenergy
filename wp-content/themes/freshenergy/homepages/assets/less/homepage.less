@@ -269,51 +269,44 @@ h3 {
     text-align:center;
     position:relative;
     margin:0 2em 4em;
-    background-size:300px 300px;
     .transition-slow;
 
-    &.renewable-electricity {
-      background-image:url('../images/clean-energy.jpg');
+    &:nth-child(1) a {
       box-shadow: inset 0 0 0 150px @accent2;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @accent2;
       }
     }
-    &.energy-performance {
-      background-image:url('../images/energy-performance.jpg');
+    &:nth-child(2) a {
       box-shadow: inset 0 0 0 150px @accent6;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @accent6;
       }
     }
-    &.global-warming-solutions {
-      background-image:url('../images/global-warming-solutions.jpg');
+    &:nth-child(3) a {
       box-shadow: inset 0 0 0 150px @accent1;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @accent1;
       }
     }
-    &.energy-news-network {
-      background-image:url('../images/energy-news-network.jpg');
+    &:nth-child(4) a {
       box-shadow: inset 0 0 0 150px @accent3;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @accent3;
       }
     }
-    &.electric-cars-buses {
-      background-image:url('../images/electric-cars-buses.jpg');
+    &:nth-child(5) a {
       box-shadow: inset 0 0 0 150px @accent5;
 
       &:hover {
         box-shadow: inset 0 0 0 0 @accent5;
       }
     }
-    &.better-buildings {
-      background-image:url('../images/better-buildings.jpg');
+    &:nth-child(6) a {
       box-shadow: inset 0 0 0 150px @accent4;
 
       &:hover {
@@ -322,12 +315,15 @@ h3 {
     }
 
     a {
-      position:absolute;
+      position: absolute;
       width:100%;
       height:100%;
       left:0;
       opacity:0;
-      .transition;
+      border-radius:50%;
+      .transition-slow;
+
+      background-size:300px 300px;
       
       span {
         position:absolute;
@@ -347,6 +343,25 @@ h3 {
         text-shadow:0 0 10px @black;
 
       }
+    }
+
+    a[href$="/programs/energy-access-and-equity/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Energy-Access-and-Equity-771x434.jpg');
+    }
+    a[href$="/programs/beneficial-electrification/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Electrifying-the-Economy-771x434.jpg');
+    }
+    a[href$="/programs/energy-efficiency/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Energy-Efficiency-771x434.jpg');
+    }
+    a[href$="/programs/energy-news-network/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Energy-News-Network-771x434.jpg');
+    }
+    a[href$="/programs/clean-power/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Renewable-Electricity-771x434.jpg');
+    }
+    a[href$="/programs/global-warming-solutions/"] {
+      background-image: url('https://fresh-energy.org/wp-content/uploads/2019/03/Global-Warming-Solutions-771x434.jpg');
     }
 
 
@@ -398,7 +413,9 @@ h3 {
     width: 250px;
     height: 250px;
     font-size: 1em;
-    background-size: 250px 250px;
+    a {
+      background-size: 250px 250px;
+    }
   }
 
 }
@@ -409,7 +426,9 @@ h3 {
     width: 200px;
     height: 200px;
     font-size: .8em;
-    background-size: 200px 200px;
+    a {
+      background-size: 200px 200px;
+    }
   }
 
 }
@@ -419,7 +438,9 @@ h3 {
     width: 150px;
     height: 150px;
     font-size: .7em;
-    background-size: 150px 150px;
+    a {
+      background-size: 150px 150px;
+    }
   }
 }
 
@@ -571,6 +592,8 @@ h3 {
     width: 120px;
     height: 120px;
     font-size: .5em;
-    background-size: 120px 120px;
+    a {
+      background-size: 120px 120px;
+    }
   }
 }
